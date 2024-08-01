@@ -28,7 +28,7 @@ const UserNotifi = () => {
   return (
     <div className="relative" ref={userDropdownRef}>
       <div onClick={toggleUserDropdown} className="relative cursor-pointer">
-        <Image src={Avatar} alt="User Avatar" width={42} height={42} className="rounded-full" />
+        <Image src={Avatar} alt="User Avatar" className="rounded-full w-[60px] md:w-12" />
         <span
           className={`absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white ${
             isOnline ? 'bg-green-400' : 'bg-gray-400'

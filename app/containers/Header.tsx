@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Notification from "./Notification";
 import UserNotifi from "./UserNotifi";
+import MobileMenu from "./MobileMenu";
 
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
         <div className="container mx-auto flex items-center justify-between">
             <div className="g-left flex items-center">
                 {/* logo */}
-                <div id="logo" className="pr-32">
+                <div id="logo" className="md:pr-32 pr-20">
                     <Link href="/">
                         <Image 
                             src={Logo}
@@ -35,6 +36,11 @@ const Header = () => {
                 </div>
                 <div className="usernotifi flex">
                     <UserNotifi/>
+                </div>
+
+                {/* mobile nav */}
+                <div className="xl:hidden">
+                    <MobileMenu/>
                 </div>
             </div>
         
