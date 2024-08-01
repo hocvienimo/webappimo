@@ -65,7 +65,7 @@ const mainMenu = {
     },
   };
 
-const Nav = () => {
+const Nav = ({ isScrolled }) => {
     const pathname = usePathname();
     return (
         <nav className="relative z-30 flex gap-8 bg-transparent">
@@ -77,11 +77,11 @@ const Nav = () => {
                         <li key={key} className="relative group">
                         <Link
                             href={item.slug}
-                            className={`${isActive ? "text-primary" : "text-white"} text-base py-4 flex items-center group-hover:text-primary`}
+                            className={`${isActive ? "text-primary" : isScrolled ? "text-[#666]" : "text-white"} text-base py-4 flex items-center group-hover:text-primary`}
                         >
                             {item.name}
                             {item.sub && (
-                                <FaCaretDown className={`ml-1 p-[2px] text-[20px] rounded ${isActive ? "bg-primary text-white" : "bg-[rgba(255,255,255,.15)]"} text-[rgba(255,255,255,.8)] group-hover:bg-primary group-hover:text-white`} />
+                                <FaCaretDown className={`ml-1 p-[2px] text-[20px] rounded ${isActive ? "bg-primary text-white" : isScrolled ? "bg-transparent" : "bg-[rgba(255,255,255,.15)]"} group-hover:bg-primary group-hover:text-white`} />
                             )}
                         </Link>
                         {item.sub && (

@@ -1,9 +1,12 @@
-import React from 'react'
-import VideoHero from './containers/VideoHero'
+import VideoHero from './containers/VideoHero';
+import RecentJobs from './containers/RecentJobs';
 
 const page = () => {
   return (
-    <VideoHero/>
+    <main>
+        <VideoHero/>
+        <RecentJobs/>
+    </main>
   )
 }
 

@@ -69,7 +69,7 @@ const mainMenu = {
     },
   };
 
-const MobileMenu = () => {
+const MobileMenu = ({isScrolled}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [currentMenu, setCurrentMenu] = useState('main');
     const [submenu, setSubmenu] = useState([]);
@@ -128,7 +128,7 @@ const MobileMenu = () => {
 <div className="relative">
       {/* Menu Icon */}
       <div onClick={toggleMenu} className="cursor-pointer p-2">
-        <FiAlignRight className="h-7 w-7 text-white" />
+        <FiAlignRight className={`h-7 w-7 ${isScrolled ? "text-[#4b4b4b]":"text-white"}`} />
       </div>
 
       {/* Mobile Menu */}

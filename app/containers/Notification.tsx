@@ -4,7 +4,7 @@ import { HiOutlineBell } from "react-icons/hi2";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 
 
-const Notification = () => {
+const Notification = ({isScrolled}) => {
   const [showBellDropdown, setShowBellDropdown] = useState(false);
   const [showMailDropdown, setShowMailDropdown] = useState(false);
   const [notifications, setNotifications] = useState([
@@ -53,7 +53,7 @@ const Notification = () => {
       {/* Bell Icon */}
       <div className="relative" ref={bellDropdownRef}>
         <div onClick={toggleBellDropdown} className="relative cursor-pointer">
-          <HiOutlineBell className="h-6 w-6 text-white mt-2" />
+          <HiOutlineBell className={`h-6 w-6 mt-2 ${isScrolled ? "text-[#666]":"text-white"}`} />
           {notifications.length > 0 && (
             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-primary rounded-full">
               {notifications.length}
@@ -82,7 +82,7 @@ const Notification = () => {
       {/* Mail Icon */}
       <div className="relative" ref={mailDropdownRef}>
         <div onClick={toggleMailDropdown} className="relative cursor-pointer">
-          <HiOutlineEnvelope className="h-6 w-6 text-white mt-2" />
+          <HiOutlineEnvelope className={`h-6 w-6 mt-2 ${isScrolled ? "text-[#666]":"text-white"}`} />
           {mails.length > 0 && (
             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-primary rounded-full">
               {mails.length}
