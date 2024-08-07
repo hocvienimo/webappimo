@@ -140,7 +140,7 @@ const MobileMenu = ({isScrolled}) => {
       >
         <div className="p-4">
           <h4 
-            className="text-xl font-bold mb-4 cursor-pointer flex items-center justify-center"
+            className="text-xl font-bold mb-4 cursor-pointer flex items-center justify-center text-primary"
             onClick={currentMenu === 'sub' ? handleBack : null}
             >
                 {currentMenu === 'sub' && <FiChevronLeft className='absolute left-0 ml-3'/>}

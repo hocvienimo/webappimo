@@ -27,7 +27,7 @@ const Header = () => {
     }, []);
 
   return (
-    <header className={`py-3 fixed transition-all top-0 left-0 w-full z-10 border-b border-[rgba(255,255,255,.2)] ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white'}`}>
+    <header className={`py-3 fixed transition-all top-0 left-0 w-full z-50 border-b border-[rgba(255,255,255,.2)] ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white'}`}>
 
         <div className="container mx-auto flex items-center justify-between">
             <div className="g-left flex items-center">
@@ -37,8 +37,8 @@ const Header = () => {
                         <Image 
                             src={isScrolled ? ScrolledLogo : Logo}
                             alt="logo"
-                            priority
-                            className="w-40"
+                            width={160}
+                            height={0}
                         />
                     </Link>
                 </div>
