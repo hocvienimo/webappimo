@@ -3,71 +3,45 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { FiAlignRight, FiChevronLeft, FiChevronRight  } from "react-icons/fi";
+import { usePathname } from 'next/navigation';
 
 const mainMenu = {
-    home: {
-      name: "Home",
-      slug: "/",
-      sub: [
-        { name: "Home 1", slug: "/home-1" },
-        { name: "Home 2", slug: "/home-2" },
-        { name: "Home 3", slug: "/home-3" },
-      ],
-    },
-    findWork: {
-      name: "Find Work",
-      slug: "/findwork",
-      sub: [
-        { name: "Browse Jobs", slug: "/findwork/browsejobs" },
-        { name: "Browse Tasks", slug: "/findwork/browsetasks" },
-        { name: "Browse Companies", slug: "/findwork/browsecompanies" },
-        { name: "Job Page", slug: "/findwork/jobpage" },
-        { name: "Task Page", slug: "/findwork/taskpage" },
-        { name: "Company Profile", slug: "/findwork/companyprofile" },
-      ],
-    },
-    forEmployers: {
-      name: "For Employers",
-      slug: "/foremployers",
-      sub: [
-        { name: "Find a Freelancer", slug: "/foremployers/findafreelancer"},
-        { name: "Freelancer Profile", slug: "/foremployers/freelancerprofile" },
-        { name: "Post a Job", slug: "/foremployers/postajob" },
-        { name: "Post a Task", slug: "/foremployers/postatask" },
-      ],
-    },
-    dashboard: {
-      name: "Dashboard",
-      slug: "/dashboard",
-      sub: [
-        { name: "Dashboard", slug: "/dashboard" },
-        { name: "Messages", slug: "/dashboard/messages" },
-        { name: "Bookmarks", slug: "/dashboard/bookmarks" },
-        { name: "Reviews", slug: "/dashboard/reviews" },
-        { name: "Jobs", slug: "/dashboard/jobs" },
-        { name: "Tasks", slug: "/dashboard/tasks" },
-        { name: "Setting", slug: "/dashboard/setting" },
-      ],
-    },
-    pages: {
-      name: "Pages",
-      slug: "/#",
-      sub: [
-        { name: "Open Street Map", slug: "/openstreetmap" },
-        { name: "Blog", slug: "/blog" },
-        { name: "Pricing Plans", slug: "/pricingplans" },
-        { name: "Checkout Page", slug: "/checkout" },
-        { name: "Invoice Template", slug: "/invoice" },
-        { name: "Login & Register", slug: "/loginregister" },
-        { name: "404 Page", slug: "/404" },
-        { name: "Contact", slug: "/#a" },
-      ],
-    },
-    Test: {
-        name: "Test",
-        slug: "/#",
-    },
-  };
+  home: {
+    name: "Trang Chủ",
+    slug: "/",
+  },
+  about: {
+    name: "Giới Thiệu",
+    slug: "/about",
+  },
+  service: {
+    name: "Dịch Vụ",
+    slug: "/dich-vu-marketing-online",
+    sub: [
+      { name: "Thiết Kế Web Theo Yêu Cầu", slug: "/thiet-ke-web-theo-yeu-cau" },
+      { name: "Thiết Kế App Ứng Dụng", slug: "/#" },
+      { name: "Thiết Kế Landing Page", slug: "/#" },
+      { name: "Quản Trị Web Chuẩn SEO", slug: "/#" },
+    ],
+  },
+  project: {
+    name: "Dự Án",
+    slug: "/du-an",
+  },
+  blog: {
+    name: "Kiến Thức",
+    slug: "/kien-thuc-digital",
+    sub: [
+      { name: "Web Design", slug: "/#" },
+      { name: "SEO", slug: "/#" },
+      { name: "Marketing Online", slug: "/#" },
+    ],
+  },
+  contact: {
+    name: "Liên Hệ",
+    slug: "/lien-he",
+  },
+};
 
 const MobileMenu = ({isScrolled}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,6 +50,7 @@ const MobileMenu = ({isScrolled}) => {
     const [menuHistory, setMenuHistory] = useState([]);
     const [parentName, setParentName] = useState('');
   
+    const pathname = usePathname(); // Sử dụng để kiểm tra đường dẫn hiện tại nếu cần
     const menuRef = useRef(null);
   
     const toggleMenu = () => {
@@ -107,15 +82,6 @@ const MobileMenu = ({isScrolled}) => {
       setMenuHistory(menuHistory);
       setParentName(menuHistory.length > 0 ? menuHistory[menuHistory.length - 1].name : '');
     };
-
-    const handleMenuClick = (subMenuItems, slug, parentName) => {
-        if (subMenuItems) {
-          handleSubmenu(subMenuItems, parentName);
-        } else {
-          // Navigate to the link if no submenu
-          window.location.href = slug;
-        }
-      };
   
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside);
@@ -125,7 +91,7 @@ const MobileMenu = ({isScrolled}) => {
     }, [menuHistory]);
 
   return (
-<div className="relative">
+    <div className="relative">
       {/* Menu Icon */}
       <div onClick={toggleMenu} className="cursor-pointer p-2">
         <FiAlignRight className={`h-7 w-7 ${isScrolled ? "text-[#4b4b4b]":"text-white"}`} />
@@ -150,13 +116,21 @@ const MobileMenu = ({isScrolled}) => {
             <ul>
               {Object.keys(mainMenu).map((key) => (
                 <li key={key} className="mb-2">
-                  <div
-                    onClick={() => handleMenuClick(mainMenu[key].sub, mainMenu[key].slug, mainMenu[key].name)}
-                    className="text-gray-700 hover:text-gray-900 cursor-pointer flex items-center justify-between"
-                  >
-                    {mainMenu[key].name}
-                    {mainMenu[key].sub && <FiChevronRight />}
-                  </div>
+                  {mainMenu[key].sub ? (
+                    <div className="text-gray-700 hover:text-gray-900 cursor-pointer flex items-center justify-between">
+                      <Link href={mainMenu[key].slug} onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-gray-900 flex-grow">
+                          {mainMenu[key].name}
+                        </Link>
+                        <FiChevronRight
+                          onClick={() => handleSubmenu(mainMenu[key].sub, mainMenu[key].name)}
+                          className="cursor-pointer"
+                        />
+
+                    </div>) : (
+                    <Link href={mainMenu[key].slug} onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-gray-900 flex items-center justify-between">
+                      {mainMenu[key].name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -166,7 +140,7 @@ const MobileMenu = ({isScrolled}) => {
               <ul>
                 {submenu.map((subItem, subIndex) => (
                   <li key={subIndex} className="mb-2">
-                    <Link href={subItem.slug} className="text-gray-600 hover:text-gray-800">
+                    <Link href={subItem.slug} onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-gray-800">
                         {subItem.name}
                     </Link>
                   </li>

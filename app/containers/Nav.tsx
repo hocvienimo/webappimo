@@ -6,62 +6,39 @@ import { FaCaretDown } from "react-icons/fa";
 
 const mainMenu = {
     home: {
-      name: "Home",
+      name: "Trang Chủ",
       slug: "/",
+    },
+    about: {
+      name: "Giới Thiệu",
+      slug: "/about",
+    },
+    service: {
+      name: "Dịch Vụ",
+      slug: "/dich-vu-marketing-online",
       sub: [
-        { name: "Home 1", slug: "/home-1" },
-        { name: "Home 2", slug: "/home-2" },
-        { name: "Home 3", slug: "/home-3" },
+        { name: "Thiết Kế Web Theo Yêu Cầu", slug: "/thiet-ke-web-theo-yeu-cau" },
+        { name: "Thiết Kế App Ứng Dụng", slug: "/#" },
+        { name: "Thiết Kế Landing Page", slug: "/#" },
+        { name: "Quản Trị Web Chuẩn SEO", slug: "/#" },
       ],
     },
-    findWork: {
-      name: "Find Work",
-      slug: "/findwork",
+    project: {
+      name: "Dự Án",
+      slug: "/du-an",
+    },
+    blog: {
+      name: "Kiến Thức",
+      slug: "/kien-thuc-digital",
       sub: [
-        { name: "Browse Jobs", slug: "/findwork/browsejobs" },
-        { name: "Browse Tasks", slug: "/findwork/browsetasks" },
-        { name: "Browse Companies", slug: "/findwork/browsecompanies" },
-        { name: "Job Page", slug: "/findwork/jobpage" },
-        { name: "Task Page", slug: "/findwork/taskpage" },
-        { name: "Company Profile", slug: "/findwork/companyprofile" },
+        { name: "Web Design", slug: "/#" },
+        { name: "SEO", slug: "/#" },
+        { name: "Marketing Online", slug: "/#" },
       ],
     },
-    forEmployers: {
-      name: "For Employers",
-      slug: "/foremployers",
-      sub: [
-        { name: "Find a Freelancer", slug: "/foremployers/findafreelancer" },
-        { name: "Freelancer Profile", slug: "/foremployers/freelancerprofile" },
-        { name: "Post a Job", slug: "/foremployers/postajob" },
-        { name: "Post a Task", slug: "/foremployers/postatask" },
-      ],
-    },
-    dashboard: {
-      name: "Dashboard",
-      slug: "/dashboard",
-      sub: [
-        { name: "Dashboard", slug: "/dashboard" },
-        { name: "Messages", slug: "/dashboard/messages" },
-        { name: "Bookmarks", slug: "/dashboard/bookmarks" },
-        { name: "Reviews", slug: "/dashboard/reviews" },
-        { name: "Jobs", slug: "/dashboard/jobs" },
-        { name: "Tasks", slug: "/dashboard/tasks" },
-        { name: "Setting", slug: "/dashboard/setting" },
-      ],
-    },
-    pages: {
-      name: "Pages",
-      slug: "/#",
-      sub: [
-        { name: "Open Street Map", slug: "/openstreetmap" },
-        { name: "Blog", slug: "/blog" },
-        { name: "Pricing Plans", slug: "/pricingplans" },
-        { name: "Checkout Page", slug: "/checkout" },
-        { name: "Invoice Template", slug: "/invoice" },
-        { name: "Login & Register", slug: "/loginregister" },
-        { name: "404 Page", slug: "/404" },
-        { name: "Contact", slug: "/contact" },
-      ],
+    contact: {
+      name: "Liên Hệ",
+      slug: "/lien-he",
     },
   };
 
@@ -77,7 +54,7 @@ const Nav = ({ isScrolled }) => {
                         <li key={key} className="relative group">
                         <Link
                             href={item.slug}
-                            className={`${isActive ? "text-primary" : isScrolled ? "text-[#666]" : "text-white"} text-base py-4 flex items-center group-hover:text-primary`}
+                            className={`${isActive ? "text-[#64DBEA]" : isScrolled ? "text-[#666]" : "text-white"} text-base font-semibold py-4 flex items-center group-hover:text-secondary`}
                         >
                             {item.name}
                             {item.sub && (
@@ -85,12 +62,12 @@ const Nav = ({ isScrolled }) => {
                             )}
                         </Link>
                         {item.sub && (
-                            <ul className="hidden group-hover:block absolute left-0 top-14 py-3 bg-white shadow-lg rounded-md w-56">
+                            <ul className="hidden group-hover:block absolute left-0 top-14 py-3 bg-white border-t-2 border-secondary shadow-lg rounded-md w-[250px]">
                             {item.sub.map((subItem, subIndex) => (
                                 <li key={subIndex}>
                                 <Link
                                     href={subItem.slug}
-                                    className={`block px-4 text-[15px] ${subItem.slug === pathname ? "text-primary" : ""} hover:text-primary text-[#aaa] transition-all`}
+                                    className={`block px-4 text-[15px] ${subItem.slug === pathname ? "text-primary" : ""} hover:text-secondary text-[#aaa] transition-all`}
                                 >
                                     {subItem.name}
                                 </Link>

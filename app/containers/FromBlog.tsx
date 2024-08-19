@@ -39,11 +39,11 @@ const FromBlog = () => {
         <div className="container">
             <div className="flex items-center justify-between">
                 <div className="titlerp">
-                    <h4 className='text-2xl font-medium'>From The Blog</h4>
-                    <div className="border-b-2 w-14 border-primary"></div>
+                    <h4 className='md:text-4xl text-3xl font-semibold text-primary font-secondary pb-2'>Digital Blog</h4>
+                    <div className="border-b-4 w-14 border-thirdary"></div>
                 </div>
                 <div className="btnrp">
-                    <button className='bg-primary hover:bg-transparent hover:duration-500 text-white hover:text-primary py-1 px-5 rounded-full flex items-center gap-2'>View Blog <span><FaArrowRightLong/></span></button>
+                    <Link href="/kien-thuc-digital" className='bg-primary hover:bg-transparent hover:duration-500 text-white hover:text-primary py-1 px-5 rounded-full flex items-center gap-2'>Xem Thêm <span><FaArrowRightLong/></span></Link>
                 </div>
             </div>
         </div>

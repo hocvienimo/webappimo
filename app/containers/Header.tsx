@@ -1,17 +1,17 @@
 "use client";
-import Logo from "@/public/images/logo2.png";
-import ScrolledLogo from "@/public/images/logo.png";
+import Logo from "@/public/images/imovn-brand-name.png";
+import ScrolledLogo from "@/public/images/imo-vn-brand-name.png";
 import Nav from './Nav'
 import Link from "next/link";
 import Image from "next/image";
-import Notification from "./Notification";
-import UserNotifi from "./UserNotifi";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname(); // Lấy đường dẫn hiện tại
 
     useEffect(() => {
       const handleScroll = () => {
@@ -26,8 +26,10 @@ const Header = () => {
       };
     }, []);
 
+    const isHomePage = pathname === "/"; // Kiểm tra xem có phải là trang chủ không
+
   return (
-    <header className={`py-3 fixed transition-all top-0 left-0 w-full z-50 border-b border-[rgba(255,255,255,.2)] ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white'}`}>
+    <header className={`py-2 fixed transition-all top-0 left-0 w-full z-50 border-b border-[rgba(255,255,255,.2)] ${isHomePage ? (isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white') : 'bg-white text-black shadow-md'}`}>
 
         <div className="container mx-auto flex items-center justify-between">
             <div className="g-left flex items-center">
@@ -35,30 +37,24 @@ const Header = () => {
                 <div id="logo" className="md:pr-32 pr-20">
                     <Link href="/">
                         <Image 
-                            src={isScrolled ? ScrolledLogo : Logo}
+                            src={isScrolled || !isHomePage ? ScrolledLogo : Logo}
                             alt="logo"
-                            width={160}
+                            width={140}
                             height={0}
                         />
                     </Link>
                 </div>
-                {/* desktop Nav */}
-                <div className="mainMenu hidden xl:flex">
-                <Nav isScrolled={isScrolled} />
-                </div>
+                
             </div>
 
             <div className="g-right flex items-center justify-between gap-8">
-                <div className="notifications hidden xl:flex flex">
-                    <Notification isScrolled={isScrolled}/>
+                {/* desktop Nav */}
+                <div className="mainMenu hidden xl:flex">
+                <Nav isScrolled={isScrolled || !isHomePage} />
                 </div>
-                <div className="usernotifi flex">
-                    <UserNotifi/>
-                </div>
-
                 {/* mobile nav */}
                 <div className="xl:hidden">
-                    <MobileMenu isScrolled={isScrolled}/>
+                    <MobileMenu isScrolled={isScrolled || !isHomePage}/>
                 </div>
             </div>
         

@@ -1,14 +1,16 @@
 import VideoHero from './containers/VideoHero';
-import RecentJobs from './containers/RecentJobs';
+import Services from './containers/Services';
 import InfoBox from './containers/InfoBox';
 import FromBlog from './containers/FromBlog';
+import Testimonial from './containers/Testimonial';
 
 const page = () => {
   return (
     <main>
         <VideoHero/>
-        <RecentJobs/>
+        <Services/>
         <InfoBox/>
+        <Testimonial/>
         <FromBlog/>
     </main>
   )

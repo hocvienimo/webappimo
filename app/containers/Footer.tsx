@@ -1,136 +1,208 @@
-"use client";
-import Image from 'next/image';
-import { useState } from 'react';
-import { FiMail,FiArrowRight } from "react-icons/fi";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
+import { BiSolidHeart } from "react-icons/bi";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { IoMdMailUnread } from "react-icons/io";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import Logo from "@/public/images/imo-vn-brand-name.png";
 
+const contentFooter = {
+    description: 'Công ty iMovn là doanh nghiệp hoạt động trong lĩnh vực Marketing Online tại Việt Nam & thị trường ngoài nước. Với tiêu chí “Chất lượng hơn số lượng”, iMovn luôn nỗ lực tạo ra những sản phẩm phần mềm hoàn thiện với hiệu quả tối ưu. Đến với iMovn, khách hàng sẽ luôn được cung cấp những dịch vụ tốt nhất!',
+    footerLinks: [
+        {
+            heading: 'Về Chúng Tôi',
+            links: [
+                {
+                    href: '#',
+                    label: 'Giới thiệu'
+                },
+                {
+                    href: '#',
+                    label: 'Dịch Vụ'
+                },
+                {
+                    href: '#',
+                    label: 'Blog kiến thức'
+                },
+                {
+                    href: '#',
+                    label: 'Video Digi'
+                },
+                {
+                    href: '#',
+                    label: 'Liên hệ'
+                }
+            ]
+        },
+        
+        {
+            heading: "Dịch Vụ",
+            links: [
+                {
+                    href: '#',
+                    label: 'Thiết kế website theo yêu cầu'
+                },
+                {
+                    href: '#',
+                    label: 'Thiết kế App Mobile theo yêu cầu'
+                },
+                {
+                    href: '#',
+                    label: 'SEO tổng thể mũ trắng'
+                },
+                {
+                    href: '#',
+                    label: 'Thiết kế landing page theo yêu cầu'
+                },
+                {
+                    href:'#',
+                    label: 'Phòng marketing online thuê ngoài'
+                },
+                {
+                    href: '#',
+                    label: 'Content chuẩn SEO'
+                },
+                {
+                    href: '#',
+                    label: 'System Backlink Entity SEO'
+                }
+            ]
+        },
 
-const itemFooter = {
-  footer1: [
-    {title: "For Candidates"},
-    {name: "Browse Jobs", link:"/#"},
-    {name: "Add Resume", link:"/#"},
-    {name: "Job Alerts", link:"/#"},
-    {name: "My Bookmarks", link:"/#"}
-  ] ,
-  footer2: [
-    {title: "For Employers"},
-    {name: "Browse Candidates", link:"/#"},
-    {name: "Post a Job", link:"/#"},
-    {name: "Post a Task", link:"/#"},
-    {name: "Plans & Pricing", link:"/#"}
-  ] ,
-  footer3: [
-    {title: "Helpful Links"},
-    {name: "Contact", link:"/#"},
-    {name: "Privacy Policy", link:"/#"},
-    {name: "Terms of Use", link:"/#"}
-  ] ,
-  footer4: [
-    {title: "Account"},
-    {name: "Log In", link:"/#"},
-    {name: "My Account", link:"/#"},
-  ] ,
-} 
+        {
+            heading: 'Kết nối iMovn',
+            links: [
+                {
+                    href: '#',
+                    title: 'Văn Phòng:',
+                    label: '730/126 Lê Đức Thọ, Phường 15, Quận Gò Vấp, TP.HCM',
+                    icon: FaMapMarkerAlt
+                },
+                {
+                    href: '#',
+                    title: 'Phòng DevWeb:',
+                    label: '766/1 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, TP.HCM',
+                    icon: FaMapMarkerAlt
+                },
+                {
+                    href: '#',
+                    title: 'Phòng DevApp:',
+                    label: '183/22 Đ. Số 28, P6, Gò Vấp, TP.HCM',
+                    icon: FaMapMarkerAlt
+                },
+                {
+                    href: '#',
+                    title: 'Hotmail:',
+                    label: 'info@imo.com.vn',
+                    icon: IoMdMailUnread
+                },
+                {
+                    href: '#',
+                    title: 'Hotline 01:',
+                    label: '0902 226 119',
+                    icon: FaPhoneSquareAlt
+                },
+                {
+                    href: '#',
+                    title: 'Hotline 01:',
+                    label: '0902 262682',
+                    icon: FaPhoneSquareAlt
+                }
+            ]
+        }
+    ],
+    copyright: {
+        img_1: '/images/fingerprints.png',
+        img_2: '/images/trangvang.png',
+        img_3: '/images/dmca.png',
+    }
+}
 
 const Footer = () => {
-  const [language, setLanguage] = useState('English');
-
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
-  };
-
   return (
-<footer className="relative text-white h-[500px] w-full">
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/images/hossain.gif"
-          alt="Footer Background"
-          fill
-          quality={100}
-          priority
-        />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-      </div>
-      <div className="container relative z-10 pt-14 footer-background">
-        <div className="flex flex-col md:flex-row justify-between items-center md:mb-8 mb-5">
-          <div className="flex items-center mb-0 md:mb-0 w-[180px] h-[50px] relative">
-            <Image
-              src="/images/logo2.png"
-              alt="Logo"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style = {{ objectFit:"contain" }}
-            />
-          </div>
-          <div className="md:flex md:ml-auto items-center mt-4 md:mt-0 gap-11">
-            <div className="flex social-icons">
-              <a href="https://facebook.com" className="icon-social-ft">
-                <FaFacebookF size={18} />
-              </a>
-              <a href="https://twitter.com" className="icon-social-ft">
-                <FaTwitter size={18} />
-              </a>
-              <a href="https://instagram.com" className="icon-social-ft">
-                <FaInstagram size={18} />
-              </a>
-              <a href="https://linkedin.com" className="icon-social-ft">
-                <FaLinkedinIn size={18} />
-              </a>
+    <footer className="overflow-hidden w-full h-full relative">
+        <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15674.255421283533!2d106.682243!3d10.844651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290abdb6c33d%3A0xc14194c1e7abbb55!2sC%C3%B4ng%20Ty%20TNHH%20IMO%20VN!5e0!3m2!1svi!2sus!4v1720450552951!5m2!1svi!2sus" width="100%" height="550" loading="lazy"></iframe>
+        </div>
+        <div className="bg-gray-100 py-20">
+            <div className="container px-4 mx-auto relative">
+                <div className="lg:flex gap-8">
+                    <div className="lg:w-4/12 mb-10 lg:mb-0">
+                        <Link href="/">
+                            <Image
+                                src={Logo}
+                                alt="imo-vn"
+                                priority
+                                className="w-36 md:w-48"
+                            />
+                        </Link>
+                        <p className="mt-4">{contentFooter.description}</p>
+                    </div>
+                    <div className="lg:w-8/12">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_40%_40%] gap-5">
+                            {contentFooter.footerLinks.map((item,index)=>(
+                                <div className="mb-10 lg:mb-0" key={item.heading}>
+                                    <h5 className="text-primary font-secondary font-extrabold text-xl mb-3">{item.heading}</h5>
+                                    <ul className="list-none">
+                                        {item.links.map((link,index)=>(
+                                            <li key={link.label} className="mb-2">
+                                                <Link href={link.href} className="text-gray-500 duration-300 ease-in-out transition-all hover:text-[#FF7431]">
+                                                    <span className="font-semibold text-primary">{link.title} </span>
+                                                    <span>{link.label}</span>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="w-full md:w-auto mt-8 md:mt-auto flex justify-center">
-              <select
-                value={language}
-                onChange={handleLanguageChange}
-                className="bg-[#444] text-white rounded-md p-2 px-4"
-              >
-                <option value="English">English</option>
-                <option value="Spanish">Spanish</option>
-                <option value="French">French</option>
-                <option value="French">Vietnam</option>
-              </select>
-            </div>
-          </div>
         </div>
 
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[17%_17%_17%_15%_30%] gap-4 pt-5">
-          {Object.keys(itemFooter).map((key, index) => (
-            <div key={index} className="p-4">
-              <h4 className="text-xl font-semibold mb-2">{itemFooter[key][0].title}</h4>
-              <ul className="item-footers">
-                {itemFooter[key].map((item, subIndex) => (
-                  <li key={subIndex}>
-                    <a href={item.link} className="text-[#c0c0c0] hover:text-white">{item.name}</a>
-                  </li>
-                ))}
-              </ul>
+        <div className="bg-primary py-0 pb-2">
+            <div className="copyright container pt-3">
+                <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center justify-center">
+                    <div className="left_cpr">
+                        <p className="text-[13px] leading-5 text-white">© Copyright 2016 iMovn. Công Ty TNHH IMO VN – Số 183/22 Đường Số 28, Phường 6, Gò Vấp, TP. Hồ Chí Minh, Việt Nam. Đại Diện: Ông Trương Thanh Hưng. Mã Số Thuế: 0317771548 Cấp Tại Phòng Đăng Ký Kinh Doanh Sở Kế Hoạch Và Đầu Tư Thành Phố Hồ Chí Minh.</p>
+                    </div>
+
+                    <div className="right_cpr">
+                        <ul className="list-none flex items-center lg:justify-end justify-center gap-2">
+                            <li>
+                                <Image
+                                src={contentFooter.copyright.img_1}
+                                alt="copyright-imovn"
+                                width={45}
+                                height={45}
+                                className="w-[45px] h-[45px]"
+                                />
+                            </li>
+                            <li>
+                                <Image
+                                src={contentFooter.copyright.img_2}
+                                alt="copyright-imovn"
+                                width={45}
+                                height={45}
+                                className="w-[45px] h-[45px]"
+                                />
+                            </li>
+                            <li>
+                                <Image
+                                src={contentFooter.copyright.img_3}
+                                alt="copyright-imovn"
+                                width={45}
+                                height={45}
+                                className="w-[45px] h-[45px]"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          ))}
-          <div className="newsletter p-4 lg:col-span-1 flex flex-col">
-            <h4 className="text-xl font-semibold mb-2 flex items-center gap-3">
-              <FiMail /> Sign Up For a Newsletter
-            </h4>
-            <p className="mb-4 text-[#c0c0c0]">Weekly breaking news, analysis, and cutting-edge advice on job searching.</p>
-            <form className="flex items-center gap-2">
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                className="p-2 rounded-md bg-[#262626] focus:outline-none placeholder-gray-500 flex-grow"
-              />
-              <button
-                type="submit"
-                className="bg-primary text-white p-2 rounded-md hover:bg-white hover:text-black p-4 flex-shrink-0"
-              >
-                <FiArrowRight />
-              </button>
-            </form>
-          </div>
-        </div>
-        <p className="flex text-[#c0c0c0] justify-center md:mt-[82px] mt-[50px] pb-4">© 2022 jobmela. All Rights Reserved.</p>
-      </div>
+        </div>                    
     </footer>
-    
   )
 }
 

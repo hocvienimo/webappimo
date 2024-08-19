@@ -2,16 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const infoGet = {
-    title: "Hire experts or be hired.",
-    subtitle: "For any job, any time.",
-    description: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation is on the runway towards.",
+    title: "Giải Pháp Toàn Diện Cho Doanh Nghiệp Số",
+    subtitle: "Chi phí thấp - Hiệu quả cao - Uy tín tuyệt đối",
+    description: "Với tiêu chí “Nhỏ gọn – An toàn, bảo mật – Đơn giản – Độc đáo“, iMovn luôn nỗ lực tạo ra những giải pháp marketing online & sản phẩm web-app hoàn thiện với hiệu quả tối ưu. Đến với chúng tôi, khách hàng sẽ luôn được cung cấp những dịch vụ tốt nhất!",
 }
 
 const InfoBox = () => {
   return (
-    <section className="relative w-full h-[520px]">
+    <section className="relative w-full h-[580px]">
       <Image
-        src="/images/section-background.jpg"
+        src="/images/bg-lien-he-imovn.jpg"
         alt="Banner Image"
         fill
         style={{ objectFit: 'cover' }}
@@ -20,11 +20,11 @@ const InfoBox = () => {
       />
       <div className="absolute inset-0 flex flex-col justify-center bg-[#333] bg-opacity-65 text-white p-4">
         <div className="max-w-7xl w-full mx-auto">
-            <h3 className="md:text-4xl text-3xl font-semibold mb-2">{infoGet.title}</h3>
-            <h6 className="md:text-4xl text-3xl font-semibold mb-7">{infoGet.subtitle}</h6>
+            <h3 className="md:text-4xl text-3xl font-secondary font-semibold mb-2">{infoGet.title}</h3>
+            <h6 className="md:text-2xl text-xl font-semibold mb-7">{infoGet.subtitle}</h6>
             <p className="text-lg font-light text-[#e7e7e7] md:w-1/2 w-full mb-8">{infoGet.description}</p>
             <Link href="/#" className="bg-primary hover:bg-[#f0f0f0] hover:text-gray-600 text-white py-3 px-10 rounded-full">
-                Get Started
+                Liên Hệ iMovn
             </Link>
         </div>
       </div>
