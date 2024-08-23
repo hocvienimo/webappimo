@@ -7,6 +7,7 @@ import { motion} from 'framer-motion';
 import { fadeIn } from '../components/variants';
 
 
+
 const aboutContent = {
   heading: {
     title: "Giải Pháp Toàn Diện Cho Doanh Nghiệp Số",

@@ -4,44 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { FiAlignRight, FiChevronLeft, FiChevronRight  } from "react-icons/fi";
 import { usePathname } from 'next/navigation';
-
-const mainMenu = {
-  home: {
-    name: "Trang Chủ",
-    slug: "/",
-  },
-  about: {
-    name: "Giới Thiệu",
-    slug: "/about",
-  },
-  service: {
-    name: "Dịch Vụ",
-    slug: "/dich-vu-marketing-online",
-    sub: [
-      { name: "Thiết Kế Web Theo Yêu Cầu", slug: "/thiet-ke-web-theo-yeu-cau" },
-      { name: "Thiết Kế App Ứng Dụng", slug: "/#" },
-      { name: "Thiết Kế Landing Page", slug: "/#" },
-      { name: "Quản Trị Web Chuẩn SEO", slug: "/#" },
-    ],
-  },
-  project: {
-    name: "Dự Án",
-    slug: "/du-an",
-  },
-  blog: {
-    name: "Kiến Thức",
-    slug: "/kien-thuc-digital",
-    sub: [
-      { name: "Web Design", slug: "/#" },
-      { name: "SEO", slug: "/#" },
-      { name: "Marketing Online", slug: "/#" },
-    ],
-  },
-  contact: {
-    name: "Liên Hệ",
-    slug: "/lien-he",
-  },
-};
+import { mainMenu } from '../components/mainMenuData';
 
 const MobileMenu = ({isScrolled}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

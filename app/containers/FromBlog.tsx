@@ -43,7 +43,7 @@ const FromBlog = () => {
                     <div className="border-b-4 w-14 border-thirdary"></div>
                 </div>
                 <div className="btnrp">
-                    <Link href="/kien-thuc-digital" className='bg-primary hover:bg-transparent hover:duration-500 text-white hover:text-primary py-1 px-5 rounded-full flex items-center gap-2'>Xem Thêm <span><FaArrowRightLong/></span></Link>
+                    <Link href="/kien-thuc" className='bg-primary hover:bg-transparent hover:duration-500 text-white hover:text-primary py-1 px-5 rounded-full flex items-center gap-2'>Xem Thêm <span><FaArrowRightLong/></span></Link>
                 </div>
             </div>
         </div>

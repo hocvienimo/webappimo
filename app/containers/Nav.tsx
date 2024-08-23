@@ -3,44 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaCaretDown } from "react-icons/fa";
-
-const mainMenu = {
-    home: {
-      name: "Trang Chủ",
-      slug: "/",
-    },
-    about: {
-      name: "Giới Thiệu",
-      slug: "/about",
-    },
-    service: {
-      name: "Dịch Vụ",
-      slug: "/dich-vu-marketing-online",
-      sub: [
-        { name: "Thiết Kế Web Theo Yêu Cầu", slug: "/thiet-ke-web-theo-yeu-cau" },
-        { name: "Thiết Kế App Ứng Dụng", slug: "/#" },
-        { name: "Thiết Kế Landing Page", slug: "/#" },
-        { name: "Quản Trị Web Chuẩn SEO", slug: "/#" },
-      ],
-    },
-    project: {
-      name: "Dự Án",
-      slug: "/du-an",
-    },
-    blog: {
-      name: "Kiến Thức",
-      slug: "/kien-thuc-digital",
-      sub: [
-        { name: "Web Design", slug: "/#" },
-        { name: "SEO", slug: "/#" },
-        { name: "Marketing Online", slug: "/#" },
-      ],
-    },
-    contact: {
-      name: "Liên Hệ",
-      slug: "/lien-he",
-    },
-  };
+import { mainMenu } from '../components/mainMenuData';
 
 const Nav = ({ isScrolled }) => {
     const pathname = usePathname();
@@ -54,7 +17,7 @@ const Nav = ({ isScrolled }) => {
                         <li key={key} className="relative group">
                         <Link
                             href={item.slug}
-                            className={`${isActive ? "text-[#64DBEA]" : isScrolled ? "text-[#666]" : "text-white"} text-base font-semibold py-4 flex items-center group-hover:text-secondary`}
+                            className={`${isActive ? "text-[#64DBEA]" : isScrolled ? "text-[#666]" : "text-white"} text-base font-bold py-4 flex items-center group-hover:text-secondary`}
                         >
                             {item.name}
                             {item.sub && (

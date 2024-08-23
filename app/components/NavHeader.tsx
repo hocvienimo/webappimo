@@ -1,7 +1,16 @@
 import Image from "next/image";
 import MyBreadcrumb from "./MyBreadcrumb";
 
-const NavHeader = ({heading,crumbs}) => {
+interface NavHeaderProps {
+  heading?: {
+    h1?: {
+      title: string;
+    };
+  };
+  crumbs: Array<{ href: string; label: string }>;
+}
+
+const NavHeader: React.FC<NavHeaderProps> = ({ heading = {}, crumbs }) => {
     return (
       <section className="relative w-full h-28 pt-6">
         <Image
@@ -13,7 +22,7 @@ const NavHeader = ({heading,crumbs}) => {
             className="z-[-1]"
         />
         <div className="container">
-            <h1 className="h1 text-2xl mb-0 text-white font-secondary font-bold">{heading.h1.title}</h1>
+            <h1 className="h1 text-2xl mb-0 text-white font-secondary font-bold">{heading?.h1?.title || 'Trang 404'}</h1>
             <MyBreadcrumb crumbs={crumbs} />
         </div>
       </section>

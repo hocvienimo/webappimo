@@ -78,4 +78,8 @@ a.icon-social-ft:hover {
     background-color: #303030 !important;
     background-image: none !important;
   }
+
+  .parallax-wrapper .react-parallax-bgimage {
+    display:none;
+  }
 }

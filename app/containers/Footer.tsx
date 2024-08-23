@@ -4,7 +4,7 @@ import { BiSolidHeart } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdMailUnread } from "react-icons/io";
 import { FaPhoneSquareAlt } from "react-icons/fa";
-import Logo from "@/public/images/imo-vn-brand-name.png";
+import Logo from "@/public/images/imovn-brand-name.png";
 
 const contentFooter = {
     description: 'Công ty iMovn là doanh nghiệp hoạt động trong lĩnh vực Marketing Online tại Việt Nam & thị trường ngoài nước. Với tiêu chí “Chất lượng hơn số lượng”, iMovn luôn nỗ lực tạo ra những sản phẩm phần mềm hoàn thiện với hiệu quả tối ưu. Đến với iMovn, khách hàng sẽ luôn được cung cấp những dịch vụ tốt nhất!',
@@ -120,11 +120,8 @@ const contentFooter = {
 
 const Footer = () => {
   return (
-    <footer className="overflow-hidden w-full h-full relative">
-        <div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15674.255421283533!2d106.682243!3d10.844651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290abdb6c33d%3A0xc14194c1e7abbb55!2sC%C3%B4ng%20Ty%20TNHH%20IMO%20VN!5e0!3m2!1svi!2sus!4v1720450552951!5m2!1svi!2sus" width="100%" height="550" loading="lazy"></iframe>
-        </div>
-        <div className="bg-gray-100 py-20">
+    <footer className="overflow-hidden w-full h-full relative bg-primary border-t-2 border-secondary rounded-t-3xl">
+        <div className="py-14">
             <div className="container px-4 mx-auto relative">
                 <div className="lg:flex gap-8">
                     <div className="lg:w-4/12 mb-10 lg:mb-0">
@@ -136,18 +133,18 @@ const Footer = () => {
                                 className="w-36 md:w-48"
                             />
                         </Link>
-                        <p className="mt-4">{contentFooter.description}</p>
+                        <p className="mt-4 text-gray-300">{contentFooter.description}</p>
                     </div>
                     <div className="lg:w-8/12">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_40%_40%] gap-5">
                             {contentFooter.footerLinks.map((item,index)=>(
                                 <div className="mb-10 lg:mb-0" key={item.heading}>
-                                    <h5 className="text-primary font-secondary font-extrabold text-xl mb-3">{item.heading}</h5>
+                                    <h5 className="text-white font-secondary font-extrabold text-xl mb-3">{item.heading}</h5>
                                     <ul className="list-none">
                                         {item.links.map((link,index)=>(
                                             <li key={link.label} className="mb-2">
-                                                <Link href={link.href} className="text-gray-500 duration-300 ease-in-out transition-all hover:text-[#FF7431]">
-                                                    <span className="font-semibold text-primary">{link.title} </span>
+                                                <Link href={link.href} className="text-gray-300 duration-300 ease-in-out transition-all hover:text-[#FF7431]">
+                                                    <span className="font-semibold text-thirdary">{link.title} </span>
                                                     <span>{link.label}</span>
                                                 </Link>
                                             </li>
@@ -161,7 +158,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="bg-primary py-0 pb-2">
+        <div className="bg-secondary py-0 pb-2">
             <div className="copyright container pt-3">
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center justify-center">
                     <div className="left_cpr">

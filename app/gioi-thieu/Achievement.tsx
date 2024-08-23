@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { HiBookOpen, HiMiniPuzzlePiece, HiMiniRocketLaunch } from "react-icons/hi2";
-import { Parallax  } from 'react-parallax';
+import { Parallax, Background   } from 'react-parallax';
 import { fadeIn } from "../components/variants";
 
 // Define the stats array with type annotations
@@ -67,12 +67,18 @@ const Achievement = () => {
 
     return (
         <Parallax
-        strength={500} 
+        strength={300} 
         bgImage={backgroundImageUrl}
         bgImageAlt="bg-imovn"
         className="parallax-wrapper"
+        bgImageStyle={{
+            minHeight: "100%", // Đảm bảo hình ảnh chiếm toàn bộ chiều cao
+            objectFit: "cover", // Duy trì tỷ lệ hình ảnh mà không bị cắt
+            backgroundPositionX: "center", // Điều chỉnh vị trí theo chiều ngang (left, right, center)
+            backgroundPositionY: "center", // Điều chỉnh vị trí theo chiều dọc (top, bottom, center)
+        }}
         >
-            <section className="py-16 bg-cover bg-center">
+            <section className="py-16">
                 <div className="container mx-auto md:flex block gap-10 items-center">
                     {/* Left */}
                     <motion.div 
@@ -111,7 +117,7 @@ const Achievement = () => {
                                 <motion.div 
                                     key={index}
                                     variants={statsItemVariant}
-                                    className="flex flex-col justify-center items-center p-4 bg-white shadow-lg rounded-lg"
+                                    className="flex flex-col justify-center items-center p-4 bg-[#40949d] bg-opacity-80 shadow-lg rounded-lg"
                                 >
                                     <div ref={ref} className="border border-accent/90 md:w-[140px] w-[110px] md:h-[140px] h-[110px] mx-auto rounded-full p-2 mb-3">
                                         <div className="border border-accent/30 w-full h-full flex flex-col items-center justify-center text-thirdary md:text-4xl text-2xl font-extrabold rounded-full bg-white">
@@ -121,7 +127,7 @@ const Achievement = () => {
                                         </div>
                                     </div>
                                     <div className="text-center">
-                                        <h4 className="font-semibold font-secondary capitalize  md:text-lg text-base text-primary">{item.text}</h4>
+                                        <h4 className="font-semibold font-secondary capitalize  md:text-lg text-base text-white">{item.text}</h4>
                                     </div>
                                 </motion.div>
                             ))}

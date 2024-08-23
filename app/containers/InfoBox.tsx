@@ -23,7 +23,7 @@ const InfoBox = () => {
             <h3 className="md:text-4xl text-3xl font-secondary font-semibold mb-2">{infoGet.title}</h3>
             <h6 className="md:text-2xl text-xl font-semibold mb-7">{infoGet.subtitle}</h6>
             <p className="text-lg font-light text-[#e7e7e7] md:w-1/2 w-full mb-8">{infoGet.description}</p>
-            <Link href="/#" className="bg-primary hover:bg-[#f0f0f0] hover:text-gray-600 text-white py-3 px-10 rounded-full">
+            <Link href="/lien-he" className="bg-primary hover:bg-[#f0f0f0] hover:text-gray-600 text-white py-3 px-10 rounded-full">
                 Liên Hệ iMovn
             </Link>
         </div>
