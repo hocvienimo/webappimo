@@ -8,9 +8,23 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import parse from "html-react-parser";
+import Link from "next/link";
 
 interface TOCProps {
   tocHtml: string;
+}
+
+// Định nghĩa kiểu cho phần tử TOC
+interface TOCElement extends React.ReactElement {
+  props: {
+    children: React.ReactNode; // Định nghĩa kiểu cho children
+  };
+}
+
+// Định nghĩa kiểu cho Link
+interface CustomLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string; // Định nghĩa href là một thuộc tính cần thiết
 }
 
 const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
@@ -22,10 +36,11 @@ const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
       const scrollPos = window.scrollY + 200;
 
       sections.forEach((section) => {
-        const sectionElement = section as HTMLElement;
+        const sectionElement = section as HTMLElement; // Ép kiểu section về HTMLElement
         const sectionTop =
           sectionElement.getBoundingClientRect().top + window.scrollY;
 
+        // Kiểm tra điều kiện activeId
         if (
           scrollPos >= sectionTop &&
           scrollPos < sectionTop + sectionElement.offsetHeight
@@ -39,7 +54,8 @@ const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const tocElements = parse(tocHtml);
+  const tocElements = parse(tocHtml) as TOCElement; // Chỉ định kiểu cho tocElements
+  const tocItems = tocElements.props.children; // Truy cập vào children
 
   return (
     <Accordion type="single" collapsible defaultValue="toc">
@@ -50,33 +66,36 @@ const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
           </AccordionTrigger>
           <AccordionContent>
             <ul className="toc text-[15px] leading-[22px] text-gray-700">
-              {React.Children.map(tocElements.props.children, (element) => {
+              {React.Children.map(tocItems, (element) => {
                 if (React.isValidElement(element) && element.type === "li") {
-                  const link = element.props.children;
-                  const isH3 = element.props.className === "h3";
+                  const link = element.props.children; // Lấy children
 
+                  // Kiểm tra và ép kiểu cho link
                   if (React.isValidElement(link) && link.type === "a") {
-                    const id = link.props.href?.substring(1);
+                    const linkProps = link.props as CustomLinkProps; // Ép kiểu cho props của link
+                    const id = linkProps.href?.substring(1);
                     const isActive = activeId === id;
 
                     return (
                       <li
                         key={id}
-                        className={`${isH3 ? "ml-4" : "h2 font-medium"} ${
-                          isActive ? "text-thirdary" : ""
-                        }`}
+                        className={`${
+                          element.props.className === "h3"
+                            ? "ml-4"
+                            : "h2 font-medium"
+                        } ${isActive ? "text-thirdary" : ""}`}
                       >
-                        <a
+                        <Link
                           href={`#${id}`}
                           className={isActive ? "text-thirdary font-bold" : ""}
                         >
-                          {link.props.children}
-                        </a>
+                          {linkProps.children} {/* Sử dụng linkProps */}
+                        </Link>
                       </li>
                     );
                   }
                 }
-                return null;
+                return null; // Trả về null nếu không phải là một li element
               })}
             </ul>
           </AccordionContent>

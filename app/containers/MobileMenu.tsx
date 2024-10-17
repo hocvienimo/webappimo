@@ -5,16 +5,34 @@ import { useState, useEffect, useRef } from "react";
 import { FiAlignRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 
-const MobileMenu = ({ isScrolled }) => {
+type MobileMenuProps = {
+  isScrolled: boolean; // Định nghĩa kiểu cho isScrolled
+};
+
+// Định nghĩa kiểu cho một mục trong menu
+interface MenuItem {
+  id: string;
+  name: string;
+  path: string;
+  children?: MenuItem[]; // Các mục con có thể có
+}
+
+// Định nghĩa kiểu cho lịch sử menu
+interface MenuHistoryItem {
+  name: string;
+  menu: "main" | "sub"; // Chỉ định kiểu cho menu
+}
+
+const MobileMenu = ({ isScrolled }: MobileMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [menuData, setMenuData] = useState([]);
-  const [currentMenu, setCurrentMenu] = useState("main");
-  const [submenu, setSubmenu] = useState([]);
-  const [menuHistory, setMenuHistory] = useState([]);
-  const [parentName, setParentName] = useState("");
+  const [menuData, setMenuData] = useState<MenuItem[]>([]); // Sử dụng kiểu cho menuData
+  const [currentMenu, setCurrentMenu] = useState<"main" | "sub">("main"); // Chỉ định kiểu cho currentMenu
+  const [submenu, setSubmenu] = useState<MenuItem[]>([]); // Sử dụng kiểu cho submenu
+  const [menuHistory, setMenuHistory] = useState<MenuHistoryItem[]>([]); // Sử dụng kiểu cho menuHistory
+  const [parentName, setParentName] = useState<string>(""); // Chỉ định kiểu cho parentName
 
   const pathname = usePathname(); // Sử dụng để kiểm tra đường dẫn hiện tại nếu cần
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement | null>(null); // Chỉ định kiểu cho menuRef
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,8 +41,8 @@ const MobileMenu = ({ isScrolled }) => {
     setParentName("");
   };
 
-  const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsMenuOpen(false);
       setCurrentMenu("main");
       setMenuHistory([]);
@@ -32,7 +50,7 @@ const MobileMenu = ({ isScrolled }) => {
     }
   };
 
-  const handleSubmenu = (subMenuItems, parentName) => {
+  const handleSubmenu = (subMenuItems: MenuItem[], parentName: string) => {
     setMenuHistory([...menuHistory, { name: parentName, menu: currentMenu }]);
     setSubmenu(subMenuItems);
     setCurrentMenu("sub");
@@ -41,11 +59,14 @@ const MobileMenu = ({ isScrolled }) => {
 
   const handleBack = () => {
     const prevMenu = menuHistory.pop();
-    setCurrentMenu(prevMenu.menu);
-    setMenuHistory(menuHistory);
-    setParentName(
-      menuHistory.length > 0 ? menuHistory[menuHistory.length - 1].name : ""
-    );
+    if (prevMenu) {
+      // Kiểm tra nếu prevMenu có giá trị
+      setCurrentMenu(prevMenu.menu);
+      setMenuHistory(menuHistory);
+      setParentName(
+        menuHistory.length > 0 ? menuHistory[menuHistory.length - 1].name : ""
+      );
+    }
   };
 
   // Fetch menu data from API
@@ -93,7 +114,7 @@ const MobileMenu = ({ isScrolled }) => {
         <div className="p-4">
           <h4
             className="text-xl font-bold mb-4 cursor-pointer flex items-center justify-center text-primary"
-            onClick={currentMenu === "sub" ? handleBack : null}
+            onClick={currentMenu === "sub" ? handleBack : undefined}
           >
             {currentMenu === "sub" && (
               <FiChevronLeft className="absolute left-0 ml-3" />
@@ -116,9 +137,12 @@ const MobileMenu = ({ isScrolled }) => {
                         {menuItem.name}
                       </Link>
                       <FiChevronRight
-                        onClick={() =>
-                          handleSubmenu(menuItem.children, menuItem.name)
-                        }
+                        onClick={() => {
+                          if (menuItem.children) {
+                            // Kiểm tra children có phải là undefined không
+                            handleSubmenu(menuItem.children, menuItem.name);
+                          }
+                        }}
                         className="cursor-pointer"
                       />
                     </div>

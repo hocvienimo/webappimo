@@ -148,7 +148,13 @@ const Post = async ({ slug }: { slug: string }) => {
         </section>
         <div className="grid md:grid-cols-[28%_70%] gap-6">
           <aside className="md:sticky md:top-28 self-start">
-            <MyToc tocHtml={post.toc || ""} />
+            {post.toc ? (
+              <MyToc tocHtml={post.toc} />
+            ) : (
+              <p className="text-gray-500">
+                Mục lục không có sẵn cho bài viết này.
+              </p>
+            )}
           </aside>
           <section className="content-single bg-white text-lg text-justify rounded-xl shadow-md md:px-8 px-3 py-4">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
