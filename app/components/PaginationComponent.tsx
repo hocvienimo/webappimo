@@ -1,41 +1,64 @@
-import { Pagination, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationContent } from '@/components/ui/pagination'
-import Link from 'next/link';
-import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi"
+import Link from "next/link";
 
-const PaginationComponent = ({currentPage, totalPages, buildPageLink}) => {
-   
-  return (
-    <div className="flex justify-center mt-6">
-    <Pagination>
-      <PaginationContent>
-        {/* Previous Button */}
-        {currentPage > 1 && (
-          <PaginationItem>
-            <Link href={buildPageLink(currentPage - 1)} passHref className="px-4 py-2 text-thirdary">
-              <FiChevronsLeft />
-            </Link>
-          </PaginationItem>
-        )}
-        {/* Page Numbers */}
-        {Array.from({ length: totalPages }, (_, index) => (
-          <PaginationItem key={index}>
-            <Link href={buildPageLink(index + 1)} passHref className="px-4 py-2">
-                {index + 1}
-            </Link>
-          </PaginationItem>
-        ))}
-        {/* Next Button */}
-        {currentPage < totalPages && (
-          <PaginationItem>
-            <Link href={buildPageLink(currentPage + 1)} passHref className="px-4 py-2 text-thirdary">
-              <FiChevronsRight  />
-            </Link>
-          </PaginationItem>
-        )}
-      </PaginationContent>
-    </Pagination>
-  </div>
-  )
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  buildPageLink: (page: number) => string;
 }
 
-export default PaginationComponent
+const PaginationComponent = ({
+  currentPage,
+  totalPages,
+  buildPageLink,
+}: PaginationProps) => {
+  return (
+    <nav className="flex justify-center mt-6">
+      <ul className="flex items-center space-x-4">
+        {/* Nút "Previous" */}
+        {currentPage > 1 && (
+          <li>
+            <Link
+              href={buildPageLink(currentPage - 1)}
+              className="px-3 py-1 rounded bg-gray-200 hover:bg-secondary hover:text-white"
+            >
+              Previous
+            </Link>
+          </li>
+        )}
+
+        {/* Các trang */}
+        {Array.from({ length: totalPages }, (_, index) => {
+          const page = index + 1;
+          return (
+            <li key={page}>
+              <Link
+                href={buildPageLink(page)}
+                className={`px-3 py-1 rounded ${
+                  currentPage === page
+                    ? "bg-secondary text-white"
+                    : "bg-gray-200 hover:bg-secondary"
+                }`}
+              >
+                {page}
+              </Link>
+            </li>
+          );
+        })}
+
+        {/* Nút "Next" */}
+        {currentPage < totalPages && (
+          <li>
+            <Link
+              href={buildPageLink(currentPage + 1)}
+              className="px-3 py-1 rounded bg-gray-200 hover:bg-secondary hover:text-white"
+            >
+              Next
+            </Link>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default PaginationComponent;

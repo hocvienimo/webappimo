@@ -13,7 +13,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với <a href="https://google.com">WebSockets</a>, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 7,
@@ -109,7 +109,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 8,
@@ -125,7 +125,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 9,
@@ -141,7 +141,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 10,
@@ -157,7 +157,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 11,
@@ -173,7 +173,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 12,
@@ -189,7 +189,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 13,
@@ -205,7 +205,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 14,
@@ -221,7 +221,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 15,
@@ -237,7 +237,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 16,
@@ -253,7 +253,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 17,
@@ -269,7 +269,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 28,
@@ -285,7 +285,7 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   },
   {
     id: 29,
@@ -301,6 +301,6 @@ export const allArticles = [
       <p>Các phương pháp này cho phép nội dung trên trang web của bạn được cập nhật mà không cần phải tải lại toàn bộ trang, giúp cải thiện trải nghiệm người dùng.</p>
       <p>Ví dụ, với WebSockets, bạn có thể thiết lập một kết nối liên tục giữa server và client, cho phép dữ liệu được đẩy từ server tới client một cách nhanh chóng và hiệu quả.</p>
     `,
-    author: 'iMovn'
+    author: 'iMovn Agency'
   }
 ];

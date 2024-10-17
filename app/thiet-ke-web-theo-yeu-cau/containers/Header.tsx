@@ -1,4 +1,4 @@
-import NavHeader from "../components/NavHeader";
+import NavHeader from "../../components/NavHeader";
 
 const heading = {
     h1: {

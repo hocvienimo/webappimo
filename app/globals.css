@@ -8,6 +8,57 @@
   }
 }
 
+.content-single h2, .content-single h3, .content-single h4 {
+  margin-bottom: 20px;
+}
+.content-single p {
+  margin-bottom: 15px;
+}
+
+.content-single ul {
+  list-style: disc;
+  margin-left: 40px;
+  margin-bottom: 13px;
+}
+
+.content-single ol {
+  list-style: decimal-leading-zero;
+  margin-left: 40px;
+  margin-bottom: 13px;
+}
+.content-single figcaption {
+    background-color: #f0f1f7;
+    font-size: 15px;
+    text-align: center;
+    padding: 4px;
+    font-style: italic;
+    color: #104375;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 14px;
+}
+.content-single h2 {
+    font-size: 23px;
+    font-family: '__Playfair_Display_603b0e';
+    color: #103e75;
+    text-align: left;
+    font-weight: 600;
+}
+.content-single h3 {
+  font-size: 21px;
+  font-family: '__Playfair_Display_603b0e';
+  color: #155290;
+  text-align: left;
+  font-weight: 600;
+}
+.content-single h4 {
+  font-size: 18px;
+  font-family: '__Playfair_Display_603b0e';
+  color: #3f91a3;
+  text-align: left;
+  font-weight: 600;
+  font-style: italic;
+}
 ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.rounded-md::after{
   content: "";
   position: absolute;
@@ -73,6 +124,34 @@ a.icon-social-ft:hover {
   opacity: 1;
 }
 
+.single-post nav {
+  background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.03);
+    padding: 11px 34px;
+}
+
+.single-post nav ol li:last-child a {
+  color: #2a2a2a;
+}
+
+/* CSS trong component hoặc file CSS riêng */
+.swiper-button-prev::after, 
+.swiper-button-next::after {
+  display: none;
+}
+ul.toc li:hover {
+  color: #FD7430; /* Hoặc màu bạn muốn */
+}
+
+.single-post .crumb-post {
+  padding-left: 19px !important;
+}
+
+.google-map iframe {
+  border-radius: 14px;
+  box-shadow: 3px 3px 5px #d6d6d6;
+}
 @media (max-width: 768px) {
   .footer-background {
     background-color: #303030 !important;

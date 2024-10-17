@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeIn } from "../components/variants";
+import { fadeIn } from "../../components/variants";
 
 const howItWorksContent = {
     heading: {
@@ -29,7 +29,7 @@ const Info = () => {
                             }
                         }}
                         viewport={{ once: true }}
-                        className='uppercase tracking-[3px] text-[13px] inline-block text-secondary'>
+                        className='uppercase tracking-[3px] text-[13px] inline-block text-thirdary'>
                             {howItWorksContent.heading.subTitle}
                         </motion.span>
                     )}

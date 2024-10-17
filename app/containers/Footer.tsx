@@ -162,7 +162,7 @@ const Footer = () => {
             <div className="copyright container pt-3">
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center justify-center">
                     <div className="left_cpr">
-                        <p className="text-[13px] leading-5 text-white">© Copyright 2016 iMovn. Công Ty TNHH IMO VN – Số 183/22 Đường Số 28, Phường 6, Gò Vấp, TP. Hồ Chí Minh, Việt Nam. Đại Diện: Ông Trương Thanh Hưng. Mã Số Thuế: 0317771548 Cấp Tại Phòng Đăng Ký Kinh Doanh Sở Kế Hoạch Và Đầu Tư Thành Phố Hồ Chí Minh.</p>
+                        <p className="text-[13px] leading-5 text-white">© Copyright 2016 iMovn.</p>
                     </div>
 
                     <div className="right_cpr">

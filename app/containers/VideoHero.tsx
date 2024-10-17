@@ -11,21 +11,21 @@ const statsJob = [
 const VideoHero = () => {
   return (
     <section className="relative z-0 overflow-hidden">
-      <video autoPlay loop muted className="object-cover w-full h-[670px]">
+      <video autoPlay loop muted className="object-cover w-full md:h-[670px] h-[450px]">
       <source src="/images/home-video-background.mp4" type="video/mp4" />
         
       </video>
       <div className="absolute inset-0 bg-[#333] bg-opacity-75"></div>
       
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="w-full px-4">
+        <div className="w-full px-4 mt-16">
           <div className="w-full max-w-screen-lg mx-auto p-4">
             <div className="title-hero mb-9 md:w-3/4">
               <h4 className="md:text-4xl text-3xl mb-1 font-bold text-white">Giải Pháp Marketing Online Toàn Diện</h4>
               <p className='text-[#adadad] md:text-lg text-lg'>iMovn - Đối Tác Đáng Tin Cậy Cho Giải Pháp Thiết Kế Web, Lập Trình App Mobile và Marketing Online Đa Kênh trong và ngoài nước tại Việt Nam. </p>
             </div>
           
-            <form className="flex flex-col md:flex-row items-start md:items-center md:gap-4 px-3 bg-transparent md:bg-white md:shadow-md rounded-full w-full max-w-screen-lg">
+            <form className=" flex-col md:flex-row hidden md:flex items-start md:items-center md:gap-4 px-3 bg-transparent md:bg-white md:shadow-md rounded-full w-full max-w-screen-lg">
               <div className="relative flex-1 py-3">
                 <input
                   type="text"
