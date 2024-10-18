@@ -3,7 +3,7 @@ import PaginationComponent from "@/app/components/PaginationComponent";
 import NavHeader from "@/app/components/NavHeader";
 import Link from "next/link";
 import Image from "next/image";
-import CateSidebar from "../components/CateSidebar";
+import CateSidebar from "@/app/[slug]/components/CateSidebar"; // Cập nhật đường dẫn import nếu cần
 
 // Định nghĩa interface cho cấu trúc dữ liệu bài viết
 interface Post {
@@ -16,7 +16,7 @@ interface Post {
   category: {
     name: string;
     slug: string;
-  }; // Thêm kiểm tra cho category
+  };
 }
 
 // Định nghĩa interface cho cấu trúc phản hồi từ API
@@ -56,9 +56,8 @@ const UserPostsPage = async ({
   username,
   searchParams,
 }: UserPostsPageProps) => {
-  // Giải mã username để lấy email
-  const currentPage = parseInt(searchParams?.page || "1", 10); // Sử dụng cơ số 10
-  const limit = parseInt(searchParams?.limit || "12", 10); // Đọc giới hạn từ tham số tìm kiếm
+  const currentPage = parseInt(searchParams?.page || "1", 10);
+  const limit = parseInt(searchParams?.limit || "12", 10);
 
   try {
     const userPostsUrl = `${process.env.NEXT_PUBLIC_API_URL}user/@${username}?page=${currentPage}&limit=${limit}&sort_by=desc&sort_name=created_at`;
@@ -85,8 +84,8 @@ const UserPostsPage = async ({
     const crumbs = [
       { href: "/", label: "Trang chủ" },
       {
-        href: `/@${username}`, // Sử dụng username cho đường dẫn
-        label: username || "Bài viết của tác giả", // Cập nhật tên tác giả
+        href: `/@${username}`,
+        label: username || "Bài viết của tác giả",
       },
     ];
 
@@ -107,7 +106,7 @@ const UserPostsPage = async ({
                 resultUser.data.image
                   ? { name: resultUser.data.name, image: resultUser.data.image }
                   : undefined
-              } // Truyền thông tin người dùng
+              }
             />
             <div className="col-span-3">
               <div className="container mx-auto md:py-0 pt-6 px-0">

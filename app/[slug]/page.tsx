@@ -2,7 +2,7 @@ import Post, { generateMetadata as generatePostMetadata } from "./Post";
 import Category, {
   generateMetadata as generateCategoryMetadata,
 } from "./Category";
-import UserPostsPage from "./@user/page"; // Nhập component UserPostsPage
+import UserPostsPage from "@/app/author/@user/page"; // Nhập component UserPostsPage
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -115,3 +115,68 @@ const checkUser = async (username: string): Promise<boolean> => {
 };
 
 export default Page;
+
+// import Post, { generateMetadata as generatePostMetadata } from "./Post";
+// import Category, {
+//   generateMetadata as generateCategoryMetadata,
+// } from "./Category";
+// import { notFound } from "next/navigation";
+// import UserPostsPage from "@/app/author/@user/page";
+
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { slug: string };
+// }) {
+//   const pathname = decodeURIComponent(params.slug);
+
+//   // Nếu là trang bài viết (kết thúc bằng .html), sử dụng generateMetadata của Post
+//   if (pathname.endsWith(".html")) {
+//     return generatePostMetadata({ params });
+//   }
+
+//   // Nếu là trang category, sử dụng generateMetadataCate của Category
+//   return generateCategoryMetadata({ params });
+// }
+
+// interface PageProps {
+//   params: {
+//     slug: string; // slug là một chuỗi
+//   };
+//   searchParams: {
+//     page?: string; // Tham số tìm kiếm trang
+//   };
+// }
+
+// const Page = async ({ params, searchParams }: PageProps) => {
+//   const pathname = decodeURIComponent(params.slug);
+
+//   // Start Xác định loại trang dựa trên slug
+//   const isPostPage = pathname.endsWith(".html");
+
+//   // Kiểm tra nếu slug bắt đầu bằng "@"
+//   if (pathname.startsWith("@")) {
+//     const username = pathname.slice(1);
+//     return <UserPostsPage username={username} searchParams={searchParams} />; // Truyền username và searchParams vào UserPostsPage
+//   }
+
+//   // Start Kiểm tra xem có phải là trang category không
+//   if (!isPostPage) {
+//     // Kiểm tra danh mục ở đây
+//   }
+//   // end
+
+//   return (
+//     <>
+//       {isPostPage ? (
+//         <Post slug={pathname.replace(".html", "")} />
+//       ) : (
+//         <Category slug={pathname} searchParams={searchParams} />
+//       )}
+//     </>
+//   );
+// };
+
+// // Các hàm và logic khác ở đây
+
+// export default Page;
