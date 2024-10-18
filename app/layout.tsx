@@ -20,9 +20,56 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_DOMAIN || "http://localhost:3002"
+  ),
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  title: {
+    default: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+    template: "%s | iMovn Co., ltd",
+  },
   description:
     "iMovn Cung Cấp Các Giải Pháp Marketing Online Bài bản Từ Thiết Kế Bộ Nhận Diện Thương Hiệu, Website, App Mobile Đến SEO và Quảng Bá Google.",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_DOMAIN,
+  },
+  publisher: "Trương Thanh Hưng",
+  authors: [
+    {
+      name: "Trương Thanh Hưng",
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/@truongthanhhung`,
+    },
+  ],
+  openGraph: {
+    title: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+    description:
+      "iMovn Cung Cấp Các Giải Pháp Marketing Online Bài bản Từ Thiết Kế Bộ Nhận Diện Thương Hiệu, Website, App Mobile Đến SEO và Quảng Bá Google.",
+    type: "website",
+    phoneNumbers: "0902 226 119",
+    locale: "vi-VN",
+    url: process.env.NEXT_PUBLIC_DOMAIN,
+    siteName: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+    images: [
+      {
+        url: "/imo-marketing-online.jpg", // Must be an absolute URL
+        width: 1200,
+        height: 630,
+        alt: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

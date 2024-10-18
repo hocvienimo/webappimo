@@ -238,7 +238,6 @@ const Services = () => {
                     </div>
 
                     <div>
-                      x
                       <h3 className="text-xl mb-4 text-white">
                         {smStep.title}
                       </h3>

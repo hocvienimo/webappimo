@@ -150,9 +150,6 @@ const Footer = () => {
                             href={link.href}
                             className="text-gray-300 duration-300 ease-in-out transition-all hover:text-[#FF7431]"
                           >
-                            <span className="font-semibold text-thirdary">
-                              {link.label}{" "}
-                            </span>
                             <span>{link.label}</span>
                           </Link>
                         </li>

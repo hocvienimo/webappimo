@@ -11,6 +11,7 @@ import {
   FiMessageSquare,
 } from "react-icons/fi";
 import Link from "next/link";
+import { Metadata } from "next";
 
 // Định nghĩa kiểu dữ liệu cho bài viết
 interface User {
@@ -40,6 +41,8 @@ interface Post {
   user: User;
   category: Category;
   related_posts: RelatedPost[];
+  title_seo?: string;
+  description_seo?: string;
   image?: string;
   toc?: string;
 }
@@ -52,6 +55,55 @@ interface Company {
   description: string;
   zalo: string;
   messenger: string;
+}
+
+// Hàm generateMetadata
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const slug = params.slug.replace(".html", ""); // Xóa đuôi .html nếu có
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}post/${slug}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    return {}; // Trả về metadata rỗng nếu bài viết không tồn tại
+  }
+
+  const responseData = await res.json();
+  const post: Post = responseData.data;
+  const authorUrl = post.user.email.replace("@gmail.com", "");
+
+  return {
+    title: post.title_seo || post.name,
+    description: post.description_seo || post.description,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/${slug}.html`,
+    },
+    publisher: post.user.name,
+    authors: [
+      {
+        name: post.user.name,
+        url: `${process.env.NEXT_PUBLIC_DOMAIN}/@${authorUrl}`,
+      },
+    ],
+    openGraph: {
+      title: post.title_seo || post.name,
+      description: post.description_seo || post.description,
+      type: "article",
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/${slug}.html`,
+      images: [
+        {
+          url: post.image || "/placeholder.jpg", // Must be an absolute URL
+          width: 1200,
+          height: 630,
+          alt: post.name,
+        },
+      ],
+    },
+  };
 }
 
 // Hàm xử lý bài viết

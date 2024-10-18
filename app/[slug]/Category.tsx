@@ -4,6 +4,7 @@ import NavHeader from "../components/NavHeader";
 import CateSidebar from "./components/CateSidebar";
 import PaginationComponent from "../components/PaginationComponent";
 import { notFound } from "next/navigation"; // Để sử dụng tính năng chuyển hướng về trang 404
+import { Metadata } from "next";
 
 // Định nghĩa kiểu dữ liệu trả về từ API
 interface Article {
@@ -23,11 +24,61 @@ interface CategoryData {
   name: string;
   slug: string;
   content: string;
+  title_seo?: string | null;
+  description_seo?: string | null;
+  canonical_seo?: string | null;
   created_at: string;
   posts: {
     current_page: number;
     last_page: number;
     data: Article[];
+  };
+}
+
+// Hàm generateMetadata
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const slug = params.slug;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}category/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    return {}; // Trả về metadata rỗng nếu bài viết không tồn tại
+  }
+
+  const responseData = await res.json();
+  const categories: CategoryData = responseData.data;
+  return {
+    title: categories.title_seo || categories.name,
+    description: categories.description_seo || categories.name,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/${slug}`,
+    },
+    category: categories.name,
+    openGraph: {
+      title: categories.title_seo || categories.name,
+      description: categories.description_seo || categories.name,
+      type: "article",
+      locale: "vi-VN",
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/${slug}`,
+      siteName: "iMovn - Giải Pháp Marketing Online Toàn Diện",
+      images: [
+        {
+          url: "/placeholder.jpg", // Must be an absolute URL
+          width: 1200,
+          height: 630,
+          alt: categories.name,
+        },
+      ],
+    },
   };
 }
 

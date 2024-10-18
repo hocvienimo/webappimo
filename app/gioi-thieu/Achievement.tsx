@@ -3,140 +3,154 @@
 import CountUp from "react-countup";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { HiBookOpen, HiMiniPuzzlePiece, HiMiniRocketLaunch } from "react-icons/hi2";
-import { Parallax, Background   } from 'react-parallax';
+import {
+  HiBookOpen,
+  HiMiniPuzzlePiece,
+  HiMiniRocketLaunch,
+} from "react-icons/hi2";
+import { Parallax } from "react-parallax";
 import { fadeIn } from "../components/variants";
 
-// Define the stats array with type annotations
 const difference = [
-    {
-        title: "Triết lý thương hiệu",
-        icon: HiBookOpen,
-        text: "Luôn luôn đề cao sự thấu hiểu để trở thành người bạn đồng hành đáng tin cậy đối với khách hàng."
-    },
-    {
-        title: "Khách hàng mục tiêu",
-        icon: HiMiniPuzzlePiece,
-        text: "Là Tập đoàn, tổ chức, Hiệp hội nhà nước, Tập đoàn tư nhân, Các doanh nghiệp vừa và nhỏ, chủ cửa hàng hay cá nhân có nhu cầu sử dụng dịch vụ marketing online đa kênh trên nền công nghệ hiện đại & đáp ứng theo từng đặc thù riêng của ngành nghề kinh doanh."
-    },
-    {
-        title: "iMovn Slogan",
-        icon: HiMiniRocketLaunch,
-        text: "Ở đâu con người vui vẻ ở đó có phồn vinh"
-    },
+  {
+    title: "Triết lý thương hiệu",
+    icon: HiBookOpen,
+    text: "Luôn luôn đề cao sự thấu hiểu để trở thành người bạn đồng hành đáng tin cậy đối với khách hàng.",
+  },
+  {
+    title: "Khách hàng mục tiêu",
+    icon: HiMiniPuzzlePiece,
+    text: "Tập đoàn, tổ chức, Hiệp hội nhà nước, doanh nghiệp vừa và nhỏ, chủ cửa hàng hoặc cá nhân có nhu cầu sử dụng dịch vụ marketing online.",
+  },
+  {
+    title: "iMovn Slogan",
+    icon: HiMiniRocketLaunch,
+    text: "Ở đâu con người vui vẻ ở đó có phồn vinh",
+  },
 ];
 
 const stats = [
-    { number: 1220, text: "quý khách hàng" },
-    { number: 9, text: "năm kinh nghiệm" },
-    { number: 14, text: "quý đối tác" },
-    { number: 23, text: "cộng sự chính" }
+  { number: 1220, text: "Quý khách hàng" },
+  { number: 9, text: "Năm kinh nghiệm" },
+  { number: 14, text: "Quý đối tác" },
+  { number: 23, text: "Cộng sự chính" },
 ];
 
-// Define the background image path
 const backgroundImageUrl = "/images/bg-khac-biet-imovn.jpg";
 
-// Animation variants
 const statsContainerVariant = {
-    hidden: { opacity: 0 },
-    show: { 
-        opacity: 1, 
-        transition: {
-            staggerChildren: 0.4,
-            duration: 0.5,
-            ease: 'linear'
-        },
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      duration: 0.7,
+      ease: "easeInOut",
     },
+  },
 };
 
 const statsItemVariant = {
-    hidden: { y: 20, opacity: 0 },
-    show: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.5,
-            ease: [0.25, 0.6, 0.3, 0.8]
-        }
-    }
+  hidden: { y: 30, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.6, 0.3, 0.8],
+    },
+  },
 };
 
 const Achievement = () => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-    return (
-        <Parallax
-        strength={300} 
-        bgImage={backgroundImageUrl}
-        bgImageAlt="bg-imovn"
-        className="parallax-wrapper"
-        bgImageStyle={{
-            minHeight: "100%", // Đảm bảo hình ảnh chiếm toàn bộ chiều cao
-            objectFit: "cover", // Duy trì tỷ lệ hình ảnh mà không bị cắt
-            backgroundPositionX: "center", // Điều chỉnh vị trí theo chiều ngang (left, right, center)
-            backgroundPositionY: "center", // Điều chỉnh vị trí theo chiều dọc (top, bottom, center)
-        }}
-        >
-            <section className="py-16">
-                <div className="container mx-auto md:flex block gap-10 items-center">
-                    {/* Left */}
-                    <motion.div 
-                    variants={fadeIn('up', 0.1)}
-                    initial = 'hidden'
-                    whileInView={'show'}
-                    viewport={{ once:false, amount: 0.2 }}
-                    className="md:w-1/2 w-full pb-8"
-                    >
-                        <h2 className="pb-3 text-3xl font-secondary md:text-4xl mt-3 font-bold mb-2 text-primary">Sự Khác Biệt Của iMovn</h2>
-                        <p className="mb-6 text-lg">
-                            Với tiêu chí “Nhỏ gọn – An toàn, bảo mật – Đơn giản – Độc đáo“, iMovn luôn nỗ lực tạo ra những sản phẩm webapp hoàn thiện với hiệu quả tối ưu. Đến với chúng tôi, khách hàng sẽ luôn được cung cấp những dịch vụ tốt nhất!
-                        </p>
-                        <div>
-                            {difference.map((item, index) => (
-                                <div key={index} className="mb-6">
-                                    <div className="flex items-center mb-2">
-                                        <item.icon className="text-2xl text-thirdary mr-2"/>
-                                        <h4 className="text-2xl text-secondary font-semibold font-secondary">{item.title}</h4>
-                                    </div>
-                                    <p className="md:ml-10 text-lg">{item.text}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                    {/* Right */}
-                    <div className="md:w-1/2 w-full">
-                        <motion.div 
-                            variants={statsContainerVariant}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: false, amount: 0.3 }}
-                            className="grid grid-cols-2 md:gap-10 gap-5"
-                        >
-                            {stats.map((item, index) => (
-                                <motion.div 
-                                    key={index}
-                                    variants={statsItemVariant}
-                                    className="flex flex-col justify-center items-center p-4 bg-[#40949d] bg-opacity-80 shadow-lg rounded-lg"
-                                >
-                                    <div ref={ref} className="border border-accent/90 md:w-[140px] w-[110px] md:h-[140px] h-[110px] mx-auto rounded-full p-2 mb-3">
-                                        <div className="border border-accent/30 w-full h-full flex flex-col items-center justify-center text-thirdary md:text-4xl text-2xl font-extrabold rounded-full bg-white">
-                                            {isInView && (
-                                                <CountUp start={0} end={item.number} duration={2} />
-                                            )}
-                                        </div>
-                                    </div>
-                                    <div className="text-center">
-                                        <h4 className="font-semibold font-secondary capitalize  md:text-lg text-base text-white">{item.text}</h4>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
+  return (
+    <Parallax
+      strength={400}
+      bgImage={backgroundImageUrl}
+      bgImageAlt="bg-imovn"
+      className="parallax-wrapper"
+      bgImageStyle={{
+        minHeight: "100%",
+        objectFit: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <section className="md:py-24 bg-opacity-75 backdrop-filter backdrop-blur-lg">
+        <div className="container mx-auto flex flex-col md:flex-row gap-16 items-center justify-between">
+          {/* Left */}
+          <motion.div
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="md:w-1/2 w-full"
+          >
+            <h2 className="text-4xl font-bold font-secondary mb-8 text-primary leading-tight">
+              Sự Khác Biệt Của iMovn
+            </h2>
+            <p className="mb-10 text-lg text-black text-justify">
+              Với tiêu chí “Nhỏ gọn – An toàn, bảo mật – Đơn giản – Độc đáo“,
+              iMovn luôn nỗ lực tạo ra những sản phẩm webapp tối ưu và dịch vụ
+              chất lượng.
+            </p>
+
+            <motion.div
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.2 }}
+              className="space-y-10"
+            >
+              {difference.map((item, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="p-3 bg-secondary rounded-full shadow-lg">
+                    <item.icon className="text-white text-2xl" />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-black font-secondary">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-lg text-primary">{item.text}</p>
+                  </div>
                 </div>
-            </section>
-        </Parallax>
-    );
+              ))}
+            </motion.div>
+          </motion.div>
+          {/* Right */}
+          <motion.div
+            variants={statsContainerVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="md:w-1/2 w-full grid grid-cols-2 md:gap-8 gap-4"
+          >
+            {stats.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={statsItemVariant}
+                className="flex flex-col group items-center md:p-6 px-0 py-6 bg-primary bg-opacity-90 shadow-2xl rounded-lg hover:scale-105 transform transition-all duration-300 cursor-pointer"
+              >
+                <div
+                  ref={ref}
+                  className="border-4 group-hover:border-secondary border-thirdary/50 w-28 h-28 md:w-36 md:h-36 md:text-4xl group-hover:text-primary text-2xl font-black rounded-full flex items-center justify-center bg-white text-thirdary"
+                >
+                  {isInView && (
+                    <CountUp start={0} end={item.number} duration={2.5} />
+                  )}
+                </div>
+                <h4 className="mt-4 md:text-base text-xs md:font-bold font-black group-hover:text-thirdary text-white uppercase">
+                  {item.text}
+                </h4>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </Parallax>
+  );
 };
 
 export default Achievement;

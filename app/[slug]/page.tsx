@@ -1,7 +1,33 @@
-import Post from "./Post";
-import Category from "./Category";
+import Post, { generateMetadata as generatePostMetadata } from "./Post";
+import Category, {
+  generateMetadata as generateCategoryMetadata,
+} from "./Category";
 import UserPostsPage from "./@user/page"; // Nhập component UserPostsPage
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const pathname = decodeURIComponent(params.slug);
+
+  // Nếu là trang bài viết (kết thúc bằng .html), sử dụng generateMetadata của Post
+  if (pathname.endsWith(".html")) {
+    return generatePostMetadata({ params });
+  }
+
+  // Nếu là trang user (bắt đầu bằng @), không cần metadata tùy chỉnh, có thể trả về mặc định hoặc null
+  if (pathname.startsWith("@")) {
+    return {
+      title: "User Page",
+      description: "User posts page",
+    };
+  }
+
+  // Nếu là trang category, sử dụng generateMetadataCate của Category
+  return generateCategoryMetadata({ params });
+}
 
 interface PageProps {
   params: {
@@ -26,11 +52,11 @@ const Page = async ({ params, searchParams }: PageProps) => {
       // Kiểm tra xem người dùng có tồn tại không
       const userExists = await checkUser(username);
       if (!userExists) {
-        notFound(); // Chuyển hướng về trang 404 nếu người dùng không tồn tại
+        return notFound(); // Chuyển hướng về trang 404 nếu người dùng không tồn tại
       }
       return <UserPostsPage username={username} searchParams={searchParams} />; // Gọi component để hiển thị bài viết của người dùng
     } else {
-      notFound(); // Chuyển hướng về trang 404 nếu username trống
+      return notFound(); // Chuyển hướng về trang 404 nếu username trống
     }
   }
   // end
@@ -40,11 +66,11 @@ const Page = async ({ params, searchParams }: PageProps) => {
     try {
       const categoryExists = await checkCategory(pathname);
       if (!categoryExists) {
-        notFound(); // Nếu không tìm thấy danh mục, chuyển hướng về trang 404
+        return notFound(); // Nếu không tìm thấy danh mục, chuyển hướng về trang 404
       }
     } catch (error) {
       console.error("Error fetching category:", error);
-      notFound(); // Nếu có lỗi trong quá trình gọi API, chuyển hướng về trang 404
+      return notFound(); // Nếu có lỗi trong quá trình gọi API, chuyển hướng về trang 404
     }
   }
   // end

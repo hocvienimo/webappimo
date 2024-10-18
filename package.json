@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "cross-env PORT=3002 next dev",
     "build": "cross-env PORT=3002 next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "cross-env PORT=3002 next start",
+    "lint": "next lint",
+    "clean-build": "rm -rf .next && next build"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
