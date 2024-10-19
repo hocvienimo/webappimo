@@ -4,6 +4,7 @@ import NavHeader from "@/app/components/NavHeader";
 import Link from "next/link";
 import Image from "next/image";
 import CateSidebar from "@/app/[slug]/components/CateSidebar"; // Cập nhật đường dẫn import nếu cần
+import { Metadata } from "next";
 
 // Định nghĩa interface cho cấu trúc dữ liệu bài viết
 interface Post {
@@ -50,6 +51,53 @@ interface ApiCategoryResponse {
 interface UserPostsPageProps {
   username: string; // username từ slug
   searchParams?: { page?: string; limit?: string }; // Tham số tìm kiếm
+}
+
+// Hàm generateMetadata
+export async function generateMetadata({
+  params,
+}: {
+  params: { username: string };
+}): Promise<Metadata | undefined> {
+  const { username } = params;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}user/@${username}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    return {}; // Trả về metadata rỗng nếu bài viết không tồn tại
+  }
+
+  const responseData = await res.json();
+  const user = responseData.data;
+
+  return {
+    title: user.name,
+    description:
+      "Auth iMovn -  Chuyên gia marketing online đa kênh và web app design.",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/@${username}`,
+    },
+    authors: null,
+    publisher: user.name,
+    openGraph: {
+      title: user.name,
+      description:
+        "Auth iMovn -  Chuyên gia marketing online đa kênh và web app design.",
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/@${username}`,
+      images: [
+        {
+          url: user.image || "/placeholder.jpg", // Must be an absolute URL
+          width: 1200,
+          height: 630,
+          alt: user.name,
+        },
+      ],
+    },
+  };
 }
 
 const UserPostsPage = async ({
