@@ -1,26 +1,28 @@
-import React from 'react'
-import Header from './containers/Header'
-import Info from './containers/Info'
-import Benefits from './containers/Benefit'
-import AboutUs from '../components/AboutComponent'
-import StepProcess from './containers/StepProcess'
-import PartnerLogos from './containers/PartnerLogos'
+import React from "react";
+import Header from "./containers/Header";
+import Info from "./containers/Info";
+import Benefits from "./containers/Benefit";
+import AboutUs from "../components/AboutComponent";
+import StepProcess from "./containers/StepProcess";
+import PartnerLogos from "./containers/PartnerLogos";
+import Commit from "./containers/Commit";
 //import FaqsItem from './containers/Faqs'
 
 const page = () => {
   return (
     <main className="mt-20 overflow-hidden">
-      <Header/>
-      <Info/>
+      <Header />
+      <Info />
       <section className="container">
-        <Benefits/>
+        <Benefits />
       </section>
-      <AboutUs/>
-      <PartnerLogos/>
+      <AboutUs />
+      <PartnerLogos />
       {/* <FaqsItem/> */}
-      <StepProcess/>
+      <StepProcess />
+      <Commit />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;
