@@ -60,14 +60,14 @@ const commitMentsLeft: Commitment[] = [
     id: 4,
     title: "toi-uu-seo",
     description:
-      "Các website theo yêu cầu của khách hàng luôn đảm bảo yêu tố chuẩn SEO không chỉ thân thiện với các bộ máy tìm kiếm như Google hay Cốc Cốc mà còn thân thiện với người dùng nhờ tối ưu UX/UI.",
+      "Thiết kế website theo yêu cầu của khách hàng luôn đảm bảo tiêu chuẩn SEO không chỉ thân thiện với các bộ máy tìm kiếm mà còn thân thiện với người dùng.",
     imageUrl: "/images/commit/cam-ket-thiet-ke-web-theo-yeu-cau-seo-web.jpg",
   },
   {
     id: 5,
     title: "chi-phi-thiet-ke-seo-hop-ly",
     description:
-      "Chi phí thiết kế website theo yêu cầu hợp lý giúp khách hàng tiết kiệm chi phí đồng thời phù hợp với ngân sách thiết kế website cụ thể của từng cửa hàng, doanh nghiệp.",
+      "Chi phí thiết kế & lập trình website theo yêu cầu tiết kiệm & hợp lý theo các option đồng thời phù hợp với ngân sách thiết kế website của từng ngành hàng.",
     imageUrl:
       "/images/commit/cam-ket-thiet-ke-web-theo-yeu-cau-chi-phi-thiet-ke.jpg",
   },
@@ -75,7 +75,7 @@ const commitMentsLeft: Commitment[] = [
     id: 6,
     title: "tu-van-thiet-ke-wen-theo-yeu-cau",
     description:
-      "Tư vấn nhiệt tình, tận tâm lấy sự hài lòng của khách hàng làm kim chỉ nam cho chất lượng dịch vụ đồng thời cam kết trợ giúp khách hàng liên tục trong suốt quá trình vận hành website đến khi khách hàng thực sự hài lòng.",
+      "Tư vấn nhiệt tình, tận tâm lấy sự hài lòng của khách hàng làm trung tâm cho chất lượng dịch vụ. Cam kết hỗ trợ khách hàng trong suốt quá trình vận hành.",
     imageUrl:
       "/images/commit/cam-ket-thiet-ke-web-theo-yeu-cau-tu-van-nhiet-tinh.jpg",
   },

@@ -6,6 +6,7 @@ import AboutUs from "../components/AboutComponent";
 import StepProcess from "./containers/StepProcess";
 import PartnerLogos from "./containers/PartnerLogos";
 import Commit from "./containers/Commit";
+import PricingTable from "./containers/Prices";
 //import FaqsItem from './containers/Faqs'
 
 const page = () => {
@@ -21,6 +22,7 @@ const page = () => {
       {/* <FaqsItem/> */}
       <StepProcess />
       <Commit />
+      <PricingTable />
     </main>
   );
 };
