@@ -62,7 +62,7 @@ const StepProcess = () => {
   ];
 
   return (
-    <section className="py-10">
+    <section className="py-10 mt-9">
       <div className="container pb-12 mx-auto">
         <div className="md:flex justify-center my-1 md:my-1 overflow-hidden">
           <div className="w-full md:w-11/12 md:flex gap-5 items-center">

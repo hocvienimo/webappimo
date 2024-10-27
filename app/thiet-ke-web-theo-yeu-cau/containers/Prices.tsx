@@ -3,18 +3,27 @@
 import { FC, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../components/variants";
+import {
+  GiBookmarklet,
+  GiBookPile,
+  GiBookmark,
+  GiBlackBook,
+} from "react-icons/gi";
+import { TfiCheck, TfiClose } from "react-icons/tfi";
+
 interface ServicePackage {
   id: number;
   name: string;
+  icon: JSX.Element;
   price: string;
-  features: string[];
+  imageUrl: string;
 }
 
 const headCommit = {
   heading: {
     title:
       "Bảng Giá Dịch Vụ thiết kế & lập trình website theo yêu cầu khách hàng",
-    subTitle: "Dịch vụ thiết kế web theo yêu cầu",
+    subTitle: "Dịch vụ thiết kế website",
     description: (
       <>
         Giá dịch vụ thiết kế website và nhu cầu trên thị trường hiện nay có
@@ -31,42 +40,38 @@ const servicePackages: ServicePackage[] = [
     id: 1,
     name: "Gói Cơ Bản",
     price: "2,000,000 VND",
-    features: ["Thiết kế đơn giản", "Tối ưu hóa SEO cơ bản", "Hỗ trợ 1 tháng"],
+    icon: <GiBookPile color="#104276" />,
+    imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
   },
   {
     id: 2,
     name: "Gói Tiêu Chuẩn",
     price: "5,000,000 VND",
-    features: [
-      "Thiết kế hiện đại",
-      "SEO nâng cao",
-      "Hỗ trợ 3 tháng",
-      "Tích hợp biểu mẫu liên hệ",
-    ],
+    icon: <GiBookmarklet color="#2194E7" />,
+    imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
   },
   {
     id: 3,
     name: "Gói Cao Cấp",
     price: "10,000,000 VND",
-    features: [
-      "Thiết kế tùy chỉnh",
-      "SEO chuyên sâu",
-      "Hỗ trợ 6 tháng",
-      "Tích hợp thương mại điện tử",
-    ],
+    icon: <GiBookmark color="#FE7432" />,
+    imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
   },
   {
     id: 4,
     name: "Gói Doanh Nghiệp",
     price: "20,000,000 VND",
-    features: [
-      "Thiết kế cao cấp",
-      "SEO toàn diện",
-      "Hỗ trợ 12 tháng",
-      "Tích hợp nhiều ngôn ngữ",
-      "Bảo mật nâng cao",
-    ],
+    icon: <GiBlackBook color="#37929E" />,
+    imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
   },
+];
+
+const commonFeatures = [
+  "Thiết kế đáp ứng chuẩn",
+  "Tối ưu hóa SEO toàn diện",
+  "Tích hợp biểu mẫu liên hệ",
+  "Hỗ trợ nhiều ngôn ngữ",
+  "Bảo mật và tối ưu hiệu suất",
 ];
 
 const PricingTable: FC = () => {
@@ -85,8 +90,21 @@ const PricingTable: FC = () => {
     setIsModalOpen(false);
   };
 
+  const getTickLimit = (packageName: string) => {
+    switch (packageName) {
+      case "Gói Cơ Bản":
+        return 2;
+      case "Gói Tiêu Chuẩn":
+        return 3;
+      case "Gói Cao Cấp":
+        return 4;
+      default:
+        return 5;
+    }
+  };
+
   return (
-    <div className="py-16 bg-gray-100">
+    <div className="mb-10">
       <div className="container pt-10 mb-12 mx-auto">
         <div className="md:flex justify-center my-1 md:my-1 overflow-hidden">
           <div className="w-full md:w-11/12 md:flex gap-10">
@@ -113,7 +131,7 @@ const PricingTable: FC = () => {
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.2 }}
-                className="font-secondary md:text-4xl text-3xl mt-3 font-bold mb-2 text-primary"
+                className="font-secondary capitalize md:text-4xl text-3xl mt-3 font-bold mb-2 text-primary"
               >
                 {headCommit.heading.title}
               </motion.h2>
@@ -138,36 +156,71 @@ const PricingTable: FC = () => {
 
       <div className="container mx-auto px-6 text-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {servicePackages.map((servicePackage) => (
-            <motion.div
-              key={servicePackage.id}
-              className={`rounded-lg shadow-lg p-6 border-2 transition duration-300 
+          {servicePackages.map((servicePackage) => {
+            const tickLimit = getTickLimit(servicePackage.name);
+            return (
+              <motion.div
+                key={servicePackage.id}
+                onClick={() => openModal(servicePackage)}
+                className={`rounded-xl shadow-md border-2 border-white cursor-pointer 
                 ${
                   servicePackage.name === "Gói Cao Cấp"
-                    ? "bg-yellow-200 border-yellow-500"
-                    : "bg-white border-transparent hover:border-blue-500"
+                    ? "bg-[#FAFAFA] shadow-2xl shadow-thirdary/50"
+                    : "bg-[#FAFAFA] border-transparent hover:border-white"
                 }`}
-              whileHover={{ scale: 1.05 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">
-                {servicePackage.name}
-              </h3>
-              <p className="text-2xl font-bold mb-4">{servicePackage.price}</p>
-              <ul className="text-left mb-6">
-                {servicePackage.features.map((feature, index) => (
-                  <li key={index} className="text-gray-700">
-                    - {feature}
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={() => openModal(servicePackage)}
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+                style={{
+                  backgroundImage: `url(${servicePackage.imageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "right center",
+                  backgroundRepeat: "no-repeat",
+                }}
               >
-                Đăng ký tư vấn
-              </button>
-            </motion.div>
-          ))}
+                {/* Nội dung */}
+                <div className="px-5 mb-9">
+                  <div className="text-7xl mt-9 mb-4 flex justify-center items-center">
+                    {servicePackage.icon}
+                  </div>
+                  <h3
+                    className={`font-secondary text-2xl font-bold mb-4 ${
+                      servicePackage.name === "Gói Cao Cấp"
+                        ? "text-thirdary"
+                        : " text-primary"
+                    }`}
+                  >
+                    {servicePackage.name}
+                  </h3>
+
+                  <ul className="text-left mb-6">
+                    {commonFeatures.map((feature, index) => (
+                      <li
+                        key={index}
+                        className={`flex items-center gap-2  ${
+                          index < tickLimit
+                            ? "text-primary hover:text-secondary"
+                            : "text-gray-500 hover:text-thirdary line-through font-thin"
+                        }`}
+                      >
+                        {index < tickLimit ? (
+                          <TfiCheck color="#3D91A0" size={14} />
+                        ) : (
+                          <TfiClose color="#FF8740" size={13} />
+                        )}
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-2xl font-extrabold mb-4">
+                    {servicePackage.price}
+                  </p>
+                  <button className="bg-secondary text-sm text-white py-2 px-4 rounded-2xl hover:bg-primary">
+                    Đăng ký tư vấn
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
