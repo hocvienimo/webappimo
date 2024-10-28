@@ -55,7 +55,7 @@ const config = {
   	}
   },
   plugins: [
-    require("tailwindcss-animate")
+    require("tailwindcss-animate"),
   ],
 } satisfies Config
 

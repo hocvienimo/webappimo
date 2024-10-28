@@ -9,7 +9,13 @@ import {
   GiBookmark,
   GiBlackBook,
 } from "react-icons/gi";
-import { TfiCheck, TfiClose, TfiAngleDoubleDown } from "react-icons/tfi";
+import {
+  TfiCheck,
+  TfiClose,
+  TfiAngleDoubleDown,
+  TfiPencilAlt,
+  TfiBackLeft,
+} from "react-icons/tfi";
 
 interface ServicePackage {
   id: number;
@@ -168,7 +174,7 @@ const PricingTable: FC = () => {
   };
 
   return (
-    <div className="mb-10">
+    <div className="mb-16">
       <div className="container pt-10 mb-12 mx-auto">
         <div className="md:flex justify-center my-1 md:my-1 overflow-hidden">
           <div className="w-full md:w-11/12 md:flex gap-10">
@@ -227,7 +233,7 @@ const PricingTable: FC = () => {
                 key={servicePackage.id}
                 className={`rounded-xl shadow-md border-2 border-white cursor-pointer 
                 ${
-                  servicePackage.name === "Gói Cao Cấp"
+                  servicePackage.name === "Gói Tiêu Chuẩn"
                     ? "bg-[#FAFAFA] shadow-2xl shadow-thirdary/50"
                     : "bg-[#FAFAFA] border-transparent hover:border-white"
                 }`}
@@ -247,7 +253,7 @@ const PricingTable: FC = () => {
                     </div>
                     <h3
                       className={`font-secondary text-2xl font-bold mb-4 ${
-                        servicePackage.name === "Gói Cao Cấp"
+                        servicePackage.name === "Gói Tiêu Chuẩn"
                           ? "text-thirdary"
                           : " text-primary"
                       }`}
@@ -340,13 +346,17 @@ const PricingTable: FC = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-            <h2 className="text-2xl font-bold mb-4">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
+            <h2 className="text-2xl font-bold mb-4 text-thirdary font-secondary">
               Tư Vấn {selectedPackage?.name}
             </h2>
+
             <form>
               <div className="mb-4">
-                <label htmlFor="name" className="block text-left mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-left mb-2 font-bold text-primary"
+                >
                   Họ và Tên
                 </label>
                 <input
@@ -358,7 +368,10 @@ const PricingTable: FC = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-left mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-left mb-2 font-bold text-primary"
+                >
                   Email
                 </label>
                 <input
@@ -370,7 +383,10 @@ const PricingTable: FC = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="message" className="block text-left mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-left mb-2 font-bold text-primary"
+                >
                   Nội dung yêu cầu
                 </label>
                 <textarea
@@ -382,16 +398,18 @@ const PricingTable: FC = () => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+                className="bg-secondary group text-white text-sm font-bold py-2 px-4 flex items-center gap-2 rounded-xl hover:bg-primary transition duration-300"
               >
-                Gửi yêu cầu
+                <TfiPencilAlt className="group-hover:text-thirdary" /> Gửi yêu
+                cầu
               </button>
             </form>
             <button
               onClick={closeModal}
-              className="mt-4 text-blue-500 hover:underline"
+              className="mt-5 ml-2 text-primary group flex items-center gap-1"
             >
-              Đóng
+              Đóng{" "}
+              <TfiBackLeft className="group-hover:text-primary text-thirdary" />
             </button>
           </div>
         </div>

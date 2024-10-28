@@ -140,6 +140,19 @@ a.icon-social-ft:hover {
 .swiper-button-next::after {
   display: none;
 }
+
+/* .benefits-top .swiper-button-prev::after, 
+.benefits-top .swiper-button-next::after {
+  display: none;
+} */
+
+/* .benefits-after-prices .swiper-button-prev::after, 
+.benefits-after-prices .swiper-button-next::after {
+  font-size: 20px;
+  line-height: 50px; 
+  color: #FD7430;
+} */
+
 ul.toc li:hover {
   color: #FD7430; /* Hoặc màu bạn muốn */
 }

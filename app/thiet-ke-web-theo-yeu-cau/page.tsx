@@ -7,6 +7,7 @@ import StepProcess from "./containers/StepProcess";
 import PartnerLogos from "./containers/PartnerLogos";
 import Commit from "./containers/Commit";
 import PricingTable from "./containers/Prices";
+import VpsHost from "./containers/VpsHost";
 //import FaqsItem from './containers/Faqs'
 
 import { Metadata } from "next";
@@ -52,6 +53,7 @@ const page = () => {
       <StepProcess />
       <Commit />
       <PricingTable />
+      <VpsHost />
     </main>
   );
 };
