@@ -78,7 +78,7 @@ const Achievement = () => {
         backgroundPosition: "center",
       }}
     >
-      <section className="md:py-24 bg-opacity-75 backdrop-filter backdrop-blur-lg">
+      <section className="md:py-24">
         <div className="container mx-auto flex flex-col md:flex-row gap-16 items-center justify-between">
           {/* Left */}
           <motion.div

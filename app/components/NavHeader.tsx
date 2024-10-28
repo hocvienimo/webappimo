@@ -12,7 +12,7 @@ interface NavHeaderProps {
 
 const NavHeader: React.FC<NavHeaderProps> = ({ heading = {}, crumbs }) => {
   return (
-    <section className="relative w-full h-28 pt-6">
+    <section className="relative w-full h-28 pt-6 z-10">
       <div className="absolute inset-0 z-[-1]">
         <Image
           src="/images/bg-header-imovn.jpg"

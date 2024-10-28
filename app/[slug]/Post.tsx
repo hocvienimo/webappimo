@@ -160,7 +160,7 @@ const Post = async ({ slug }: { slug: string }) => {
   const username = post.user.email.replace("@gmail.com", ""); // Cắt bỏ phần đuôi @gmail.com
 
   return (
-    <main className="single-post bg-[#F7F8FC] pb-6">
+    <main className="single-post pb-6">
       <section className="container mx-auto md:px-4 py-8 mt-20">
         <MyBreadcrumb crumbs={crumbs} />
       </section>
