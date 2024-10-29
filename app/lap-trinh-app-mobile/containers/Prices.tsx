@@ -65,7 +65,7 @@ const servicePackages: ServicePackage[] = [
     ),
     object:
       "Phù hợp cho doanh nghiệp có nhu cầu tùy biến thêm một số tính năng nâng cao, phục vụ nhiều nhu cầu đa dạng của người dùng.",
-    price: "Từ $4,000",
+    price: "từ $4,000",
     icon: <GiBookmarklet color="#2194E7" />,
     imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
     features: [
@@ -87,7 +87,7 @@ const servicePackages: ServicePackage[] = [
     ),
     object:
       "Dành cho các doanh nghiệp cần ứng dụng với tính năng phong phú, phức tạp, phục vụ người dùng chuyên sâu và trải nghiệm mượt mà.",
-    price: "Từ $8,000",
+    price: "từ $8,000",
     icon: <GiBookmark color="#FE7432" />,
     imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
     features: [
@@ -111,7 +111,7 @@ const servicePackages: ServicePackage[] = [
     ),
     object:
       "Phù hợp cho các doanh nghiệp lớn cần một ứng dụng có tính năng đa dạng, bảo mật cao và khả năng tích hợp sâu với hệ thống quản lý.",
-    price: "Từ $15,000",
+    price: "từ $15,000",
     icon: <GiBlackBook color="#37929E" />,
     imageUrl: "/images/prices/goi-thiet-ke-wevsite-01.png",
     features: [

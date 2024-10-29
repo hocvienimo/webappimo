@@ -38,7 +38,7 @@ const howItWorksContent = {
       description:
         "Mang đến cho bạn những giải pháp hiệu quả, không chỉ tập trung vào việc tạo ra giao diện người dùng hấp dẫn mà còn đảm bảo trải nghiệm người dùng tốt nhất.",
       btn: {
-        href: "/",
+        href: "/lap-trinh-app-mobile",
         label: "Xem chi tiết",
       },
     },
@@ -50,7 +50,7 @@ const howItWorksContent = {
       description:
         "Dịch vụ SEO tổng thể của iMovn được thiết kế để tối ưu sự tiêp cận online trực tuyến của bạn, không chỉ trên Google mà trên tất cả nền tảng quan trọng khác.",
       btn: {
-        href: "/",
+        href: "/seo-tong-the-da-kenh.html",
         label: "Xem chi tiết",
       },
     },
@@ -63,7 +63,7 @@ const howItWorksContent = {
       description:
         "Giải pháp Outsourced Marketing Department tối ưu cho các doanh nghiệp muốn tập trung chuyên môn & kinh nghiệm của đội ngũ marketing online đa kênh chuyên nghiệp mà không cần phải xây dụng & duy trì phòng ban nội bộ trong công ty",
       btn: {
-        ref: "/",
+        ref: "/phong-marketing-online-thue-ngoai.html",
         label: "Xem chi tiết",
       },
     },
@@ -96,7 +96,7 @@ const howItWorksContent = {
       description:
         "Thiết kế một landing page chuyên nghiệp không chỉ đẹp còn mang tính logic hóa các vấn đề đưa vào landing page đúng trọng tâm. Tăng tỷ lệ chuyển đổi khí chạy quảng cáo Google, Facebook ads, tập trung vào mục tiêu cụ thể.",
       btn: {
-        ref: "/",
+        ref: "/thiet-ke-langding-page.html",
         label: "Xem chi tiết",
       },
     },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Mulish, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "./containers/Header";
@@ -72,13 +73,40 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+async function getSchema() {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`,
+      {
+        next: { revalidate: 3600 }, // revalidate every hour
+      }
+    );
+    const data = await response.json();
+    return data.success ? data.data.schema_website : null;
+  } catch (error) {
+    console.error("Error fetching schema:", error);
+    return null;
+  }
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const schema = await getSchema();
   return (
     <html lang="vi" suppressHydrationWarning={true}>
+      <head>
+        {schema && (
+          <Script
+            id="schema-script"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            strategy="afterInteractive"
+          />
+        )}
+      </head>
       <body
         className={`${mulish.variable} ${playfairDisplay.variable} font-sans`}
       >

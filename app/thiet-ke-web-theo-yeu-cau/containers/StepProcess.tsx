@@ -17,7 +17,7 @@ const StepProcess = () => {
     {
       step: 1,
       title: "Khảo sát yêu cầu",
-      desc: "Chúng tôi lắng nghe và hiểu rõ nhu cầu của bạn, đảm bảo mọi thứ được định hướng đúng.",
+      desc: "iMovn lắng nghe và hiểu rõ nhu cầu của bạn, đảm bảo mọi thứ được định hướng đúng.",
     },
     {
       step: 2,
