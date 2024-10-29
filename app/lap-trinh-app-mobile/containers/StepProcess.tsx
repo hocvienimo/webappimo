@@ -16,48 +16,33 @@ const StepProcess = () => {
   const steps = [
     {
       step: 1,
-      title: "Khảo sát yêu cầu",
-      desc: "Chúng tôi lắng nghe và hiểu rõ nhu cầu của bạn, đảm bảo mọi thứ được định hướng đúng.",
+      title: "Thu Thập Yêu Cầu",
+      desc: "Chúng tôi lắng nghe và xác định yêu cầu chi tiết của bạn, từ tính năng mong muốn đến giao diện người dùng..",
     },
     {
       step: 2,
-      title: "Phác thảo ý tưởng",
-      desc: "Đưa ra các bản phác thảo, định hình giao diện và trải nghiệm người dùng.",
+      title: "Phân Tích & Tư Vấn",
+      desc: "Đội ngũ chuyên gia sẽ tư vấn các giải pháp công nghệ, bố cục và tính năng tối ưu, phù hợp với thị trường mục tiêu của bạn.",
     },
     {
       step: 3,
-      title: "Thiết kế giao diện",
-      desc: "Thiết kế đồ họa trực quan, tối ưu hóa trải nghiệm người dùng.",
+      title: "Thiết Kế UI/UX",
+      desc: "Thiết kế giao diện với trải nghiệm người dùng mượt mà, dễ sử dụng và thu hút. Chúng tôi đảm bảo giao diện có tính thẩm mỹ cao và tính năng dễ truy cập.",
     },
     {
       step: 4,
-      title: "Lập trình chức năng",
-      desc: "Xây dựng hệ thống chức năng theo yêu cầu và đảm bảo tính bảo mật.",
+      title: "Phát Triển Ứng Dụng",
+      desc: "Tiến hành lập trình và triển khai theo đúng kế hoạch, luôn cập nhật tiến độ để bạn theo dõi sát sao.",
     },
     {
       step: 5,
-      title: "Kiểm tra & tinh chỉnh",
-      desc: "Chạy thử nghiệm trên nhiều thiết bị, tối ưu hóa tốc độ và trải nghiệm.",
+      title: "Kiểm Thử & Tối Ưu",
+      desc: "Kiểm thử ứng dụng trên nhiều thiết bị và điều chỉnh cho tối ưu hiệu suất. Mọi lỗi kỹ thuật sẽ được khắc phục trước khi ra mắt.",
     },
     {
       step: 6,
-      title: "Bàn giao & hướng dẫn",
-      desc: "Bàn giao website hoàn chỉnh và hướng dẫn sử dụng cho bạn.",
-    },
-    {
-      step: 7,
-      title: "Hỗ trợ sau bán hàng",
-      desc: "Luôn đồng hành cùng bạn, hỗ trợ nhanh chóng và kịp thời.",
-    },
-    {
-      step: 8,
-      title: "Đánh giá hiệu suất",
-      desc: "Theo dõi và phân tích hiệu suất website sau khi ra mắt để cải thiện.",
-    },
-    {
-      step: 9,
-      title: "Nâng cấp và phát triển",
-      desc: "Duy trì và nâng cấp website theo nhu cầu và xu hướng mới.",
+      title: "Phát Hành & Bảo Trì",
+      desc: "Ứng dụng được triển khai lên các nền tảng App Store, Play Store và chúng tôi cung cấp dịch vụ bảo trì dài hạn để đảm bảo hoạt động ổn định.",
     },
   ];
 

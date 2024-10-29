@@ -13,20 +13,20 @@ import Testimonial from "../containers/Testimonial";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Thiết Kế Web App Theo Yêu Cầu Chuẩn SEO",
+  title: "Thiết Kế & Lập Trình App Di Động Theo Yêu Cầu",
   description:
     "iMovn - Đối Tác Đáng Tin Cậy Cho Giải Pháp Thiết Kế Website, Lập Trình Ứng Dụng Di Động và Marketing Online Đa Kênh trong và ngoài nước tại Việt Nam.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/thiet-ke-web-theo-yeu-cau`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/lap-trinh-app-mobile`,
   },
   openGraph: {
-    title: "Thiết Kế Web App Theo Yêu Cầu Chuẩn SEO",
+    title: "Thiết Kế & Lập Trình App Di Động Theo Yêu Cầu",
     description:
       "iMovn - Đối Tác Đáng Tin Cậy Cho Giải Pháp Thiết Kế Website, Lập Trình Ứng Dụng Di Động và Marketing Online Đa Kênh trong và ngoài nước tại Việt Nam.",
     type: "website",
     phoneNumbers: "0902 226 119",
     locale: "vi-VN",
-    url: `${process.env.NEXT_PUBLIC_DOMAIN}/thiet-ke-web-theo-yeu-cau`,
+    url: `${process.env.NEXT_PUBLIC_DOMAIN}/lap-trinh-app-mobile`,
     siteName: "iMovn - Giải Pháp Marketing Online Toàn Diện",
     images: [
       {
