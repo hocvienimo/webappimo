@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
 import { TfiAngleDoubleDown } from "react-icons/tfi";
-import { fadeIn } from "../../components/variants";
+import { fadeIn } from "../../../components/moduls/variants";
 
 interface FaqsItemProps {
   step: string;

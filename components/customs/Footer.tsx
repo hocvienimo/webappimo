@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BiSolidHeart } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoMdMailUnread } from "react-icons/io";
 import { FaPhoneSquareAlt } from "react-icons/fa";
@@ -138,13 +137,13 @@ const Footer = () => {
             </div>
             <div className="lg:w-8/12">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_40%_40%] gap-5">
-                {contentFooter.footerLinks.map((item, index) => (
+                {contentFooter.footerLinks.map((item) => (
                   <div className="mb-10 lg:mb-0" key={item.heading}>
                     <h5 className="text-white font-secondary font-extrabold text-xl mb-3">
                       {item.heading}
                     </h5>
                     <ul className="list-none">
-                      {item.links.map((link, index) => (
+                      {item.links.map((link) => (
                         <li key={link.label} className="mb-2">
                           <Link
                             href={link.href}

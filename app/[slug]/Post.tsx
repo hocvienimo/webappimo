@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import MyBreadcrumb from "../components/MyBreadcrumb";
-import MySwiper from "../components/MySwiper";
+import MyBreadcrumb from "../../components/moduls/MyBreadcrumb";
+import MySwiper from "../../components/moduls/MySwiper";
 import MyToc from "./components/MyToc";
 import {
   FiPhoneCall,

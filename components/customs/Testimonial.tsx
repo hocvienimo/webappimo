@@ -90,7 +90,6 @@ const testimonialContent = {
 };
 
 const Testimonial = () => {
-  const [slideIndex, setSlideIndex] = useState(0);
   const [isEnd, setIsEnd] = useState(false);
   const [isBeginning, setIsBeginning] = useState(false);
   const sliderRef = useRef<SwiperCore | null>(null);
@@ -178,7 +177,6 @@ const Testimonial = () => {
               speed={700}
               spaceBetween={30}
               onSlideChange={(swiper) => {
-                setSlideIndex(swiper.activeIndex);
                 setIsEnd(swiper.isEnd);
                 setIsBeginning(swiper.isBeginning);
               }}

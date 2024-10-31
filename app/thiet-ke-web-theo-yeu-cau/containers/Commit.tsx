@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../components/variants";
+import { fadeIn } from "../../../components/moduls/variants";
 import Image from "next/image";
 
 const headCommit = {
@@ -135,7 +135,7 @@ const Commit = () => {
         </div>
 
         <div className="container mx-auto px-6 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {commitMentsRight.map((commitment, index) => (
+          {commitMentsRight.map((commitment) => (
             <motion.div
               key={commitment.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer"
@@ -166,7 +166,7 @@ const Commit = () => {
             </motion.div>
           ))}
 
-          {commitMentsLeft.map((commitment, index) => (
+          {commitMentsLeft.map((commitment) => (
             <motion.div
               key={commitment.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer"

@@ -1,6 +1,6 @@
 import React from "react";
-import PaginationComponent from "@/app/components/PaginationComponent";
-import NavHeader from "@/app/components/NavHeader";
+import PaginationComponent from "@/components/moduls/PaginationComponent";
+import NavHeader from "@/components/moduls/NavHeader";
 import Link from "next/link";
 import Image from "next/image";
 import CateSidebar from "@/app/[slug]/components/CateSidebar"; // Cập nhật đường dẫn import nếu cần

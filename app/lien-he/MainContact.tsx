@@ -86,6 +86,7 @@ const ContactPage = () => {
         setStatusMessage(data.message || "Có lỗi xảy ra, vui lòng thử lại.");
       }
     } catch (error) {
+      console.error("Error submitting form:", error);
       setStatusMessage(
         "Không thể gửi liên hệ, vui lòng kiểm tra kết nối mạng."
       );
@@ -140,7 +141,7 @@ const ContactPage = () => {
               </ul>
             )}
             <ul>
-              {servicesItem.items.map((item, index) => (
+              {servicesItem.items.map((item) => (
                 <li key={item.title} className="flex items-center gap-2">
                   <item.icon className="text-thirdary" /> {item.title}
                 </li>

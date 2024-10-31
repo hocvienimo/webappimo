@@ -1,7 +1,7 @@
 import React from "react";
-import Services from "../containers/Services";
-import Testimonial from "../containers/Testimonial";
-import Header from "../containers/Header";
+import Services from "@/components/customs/Services";
+import Testimonial from "@/components/customs/Testimonial";
+import Header from "./containers/Header";
 
 const page = () => {
   return (

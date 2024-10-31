@@ -8,7 +8,7 @@ import { FaCircleNodes } from "react-icons/fa6";
 import { FaDigitalOcean } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { fadeIn } from "../components/variants";
+import { fadeIn } from "../moduls/variants";
 
 const howItWorksContent = {
   heading: {

@@ -2,7 +2,7 @@
 
 import { FC, ReactNode, useState } from "react";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../components/variants";
+import { fadeIn } from "../../../components/moduls/variants";
 import {
   GiBookmarklet,
   GiBookPile,

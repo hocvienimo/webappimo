@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavHeader from "../components/NavHeader";
+import NavHeader from "../../components/moduls/NavHeader";
 import CateSidebar from "./components/CateSidebar";
-import PaginationComponent from "../components/PaginationComponent";
+import PaginationComponent from "../../components/moduls/PaginationComponent";
 import { notFound } from "next/navigation"; // Để sử dụng tính năng chuyển hướng về trang 404
 import { Metadata } from "next";
 

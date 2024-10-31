@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import ImgAbout from "@/public/images/bg-about-imo-vn.png";
 import { HiCodeBracket } from "react-icons/hi2";
 import { motion } from "framer-motion";
-import { fadeIn } from "../components/variants";
+import { fadeIn } from "@/components/moduls/variants";
 
 const aboutContent = {
   heading: {

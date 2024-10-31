@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Mulish, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Header from "./containers/Header";
-import Footer from "./containers/Footer";
+import Header from "../components/customs/Header";
+import Footer from "../components/customs/Footer";
 import NextTopLoader from "nextjs-toploader";
 
 const mulish = Mulish({

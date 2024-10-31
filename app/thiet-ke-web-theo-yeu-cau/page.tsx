@@ -2,14 +2,14 @@ import React from "react";
 import Header from "./containers/Header";
 import Info from "./containers/Info";
 import Benefits from "./containers/Benefit";
-import AboutUs from "../components/AboutComponent";
+import AboutUs from "@/components/moduls/AboutComponent";
 import StepProcess from "./containers/StepProcess";
 import PartnerLogos from "./containers/PartnerLogos";
 import Commit from "./containers/Commit";
 import PricingTable from "./containers/Prices";
 import VpsHost from "./containers/VpsHost";
 import FaqsItem from "./containers/Faqs";
-import Testimonial from "../containers/Testimonial";
+import Testimonial from "@/components/customs/Testimonial";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

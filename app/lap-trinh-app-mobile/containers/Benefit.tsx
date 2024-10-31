@@ -10,7 +10,6 @@ import {
   FiLayers,
   FiLogIn,
   FiLoader,
-  FiHeadphones,
 } from "react-icons/fi";
 
 const contentItem = {

@@ -1,8 +1,8 @@
-import VideoHero from "./containers/VideoHero";
-import Services from "./containers/Services";
-import InfoBox from "./containers/InfoBox";
-import FromBlog from "./containers/FromBlog";
-import Testimonial from "./containers/Testimonial";
+import VideoHero from "@/components/customs/VideoHero";
+import Services from "@/components/customs/Services";
+import InfoBox from "@/components/customs/InfoBox";
+import FromBlog from "@/components/customs/FromBlog";
+import Testimonial from "@/components/customs/Testimonial";
 
 const page = () => {
   return (

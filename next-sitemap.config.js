@@ -27,11 +27,11 @@ module.exports = {
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
     };
   },
-    
+
   // Tự động thêm các URL động
-  additionalPaths: async (config) => {
+  additionalPaths: async () => {
     const paths = [];
-    
+
     // Fetch dữ liệu danh mục và bài viết
     const categories = await fetchCategories();
     const posts = await fetchPosts();

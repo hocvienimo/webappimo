@@ -30,9 +30,14 @@ const Nav = ({ isScrolled }: { isScrolled: boolean }) => {
         }
         const result = await response.json();
         setMenuData(result.data); // Set the fetched data
-      } catch (error: any) {
-        setError(error.message); // Set error message
-        console.error("Error fetching data:", error.message);
+      } catch (error: unknown) {
+        setError(
+          error instanceof Error ? error.message : "An unknown error occurred"
+        );
+        console.error(
+          "Error fetching data:",
+          error instanceof Error ? error.message : error
+        );
       }
     };
 

@@ -9,7 +9,7 @@ import {
   HiMiniRocketLaunch,
 } from "react-icons/hi2";
 import { Parallax } from "react-parallax";
-import { fadeIn } from "../components/variants";
+import { fadeIn } from "../../components/moduls/variants";
 
 const difference = [
   {
