@@ -1,0 +1,43 @@
+**************************
+**************************
+<TypeAnimation
+    sequence={[
+    'Mẫu website chuyên nghiệp với thiết kế hiện đại',
+    1000,
+    ]}
+    wrapper="p"
+    speed={50}
+    className="text-gray-600 mb-4"
+    repeat={1}
+/>
+
+sequence: Mảng chứa text và thời gian delay (1000ms)
+wrapper: Kiểu thẻ HTML bao bọc
+speed: Tốc độ typing (50ms mỗi ký tự)
+repeat: Số lần lặp lại (1 = chạy một lần)
+
+<TypeAnimation
+    sequence={[
+    'Mẫu website chuyên nghiệp với thiết kế hiện đại',
+    1000,
+    '', // thêm chuỗi rỗng để xóa text trước khi lặp lại
+    500,  // delay trước khi bắt đầu lại
+    ]}
+    wrapper="p"
+    speed={50}
+    className="text-gray-600 mb-4"
+    repeat={Infinity}
+/>
+
+Tôi đã thêm hai thay đổi:
+Đặt repeat={Infinity} để animation lặp lại vô hạn
+Thêm chuỗi rỗng '' và delay 500ms vào sequence để tạo hiệu ứng xóa text trước khi bắt đầu lại
+Bây giờ animation sẽ:
+1. Hiển thị text từ trái sang phải
+Dừng 1 giây
+Xóa text
+4. Dừng 0.5 giây
+Lặp lại từ đầu
+
+**************************
+**************************

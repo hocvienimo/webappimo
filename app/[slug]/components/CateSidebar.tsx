@@ -2,27 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-// Định nghĩa kiểu cho Category
-interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  children?: Category[]; // Danh sách danh mục con (nếu có)
-}
-
-// Định nghĩa kiểu cho User
-interface ApiUserResponse {
-  name: string;
-  image: string; // URL của avatar user
-}
-
-// Định nghĩa kiểu cho props
-interface CateSidebarProps {
-  categories: Category[]; // Danh sách các danh mục
-  currentSlug: string; // Slug của danh mục hiện tại
-  user?: ApiUserResponse; // Thông tin user, chỉ hiển thị nếu có
-}
+import { CateSidebarProps } from "@/types/Categories";
 
 const CateSidebar: React.FC<CateSidebarProps> = ({
   categories,
@@ -48,22 +28,23 @@ const CateSidebar: React.FC<CateSidebarProps> = ({
         <h3 className="text-2xl font-secondary font-semibold text-secondary mb-4">
           Chuyên Đề
         </h3>
-        <ul>
+        <ul className="ml-2">
           {categories.map((category) => (
             <li key={category.id}>
               {/* Truyền danh mục cha (Kiến Thức) */}
-              {/* <Link href={`/${category.slug}`}>
-              <span
-                className={`block p-2 rounded ${
-                  currentSlug === category.slug
-                    ? "bg-red-500 text-white"
-                    : "text-black"
-                }`}
-              >
-                {category.name}
-              </span>
-            </Link> */}
-              {category.children && category.children.length > 0 && (
+              <Link href={`/${category.slug}`}>
+                <span
+                  className={`block font-bold py-1 hover:text-thirdary ${
+                    currentSlug === category.slug
+                      ? "text-thirdary"
+                      : "text-black"
+                  }`}
+                >
+                  {category.name}
+                </span>
+              </Link>
+
+              {/* {category.children && category.children.length > 0 && (
                 <ul className="ml-2">
                   {category.children.map((child) => (
                     <li key={child.id}>
@@ -81,7 +62,7 @@ const CateSidebar: React.FC<CateSidebarProps> = ({
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
             </li>
           ))}
         </ul>

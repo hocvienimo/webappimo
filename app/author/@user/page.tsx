@@ -5,53 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import CateSidebar from "@/app/[slug]/components/CateSidebar"; // Cập nhật đường dẫn import nếu cần
 import { Metadata } from "next";
-
-// Định nghĩa interface cho cấu trúc dữ liệu bài viết
-interface Post {
-  id: number;
-  name: string;
-  slug: string;
-  image: string | null;
-  description: string | null;
-  created_at: string;
-  category: {
-    name: string;
-    slug: string;
-  };
-}
-
-// Định nghĩa interface cho cấu trúc phản hồi từ API
-interface ApiUserResponse {
-  success: boolean;
-  message: string;
-  data: {
-    id: number;
-    name: string;
-    email: string;
-    image: string | null;
-    posts: {
-      current_page: number;
-      data: Post[];
-      last_page: number;
-    };
-  };
-}
-
-// Định nghĩa interface cho cấu trúc phản hồi từ API danh mục
-interface ApiCategoryResponse {
-  success: boolean;
-  message: string;
-  data: {
-    id: number;
-    name: string;
-    slug: string;
-  }[];
-}
-
-interface UserPostsPageProps {
-  username: string; // username từ slug
-  searchParams?: { page?: string; limit?: string }; // Tham số tìm kiếm
-}
+import {
+  ApiCategoryResponse,
+  ApiUserResponse,
+  Post,
+  UserPostsPageProps,
+} from "@/types/Author";
+import { CategoryWithChildren } from "@/types/Categories";
 
 // Hàm generateMetadata
 export async function generateMetadata({
@@ -116,18 +76,21 @@ const UserPostsPage = async ({
       fetch(categoryUrl, { cache: "no-store" }),
     ]);
 
-    if (!userPostsRes.ok) {
-      const errorText = await userPostsRes.text();
-      throw new Error(`Lỗi ${userPostsRes.status}: ${errorText}`);
+    // Handle API errors
+    if (!userPostsRes.ok || !categoryRes.ok) {
+      throw new Error(
+        `API Error: User Posts (${userPostsRes.status}) or Categories (${categoryRes.status})`
+      );
     }
 
-    if (!categoryRes.ok) {
-      const errorText = await categoryRes.text();
-      throw new Error(`Lỗi ${categoryRes.status}: ${errorText}`);
-    }
-
+    // Parse response data
     const resultUser: ApiUserResponse = await userPostsRes.json();
     const categoryResult: ApiCategoryResponse = await categoryRes.json();
+
+    // Find kienThucCategory correctly
+    const kienThucCategory = categoryResult.data.find(
+      (cat) => cat.slug === "kien-thuc"
+    ) as CategoryWithChildren | undefined;
 
     const crumbs = [
       { href: "/", label: "Trang chủ" },
@@ -148,11 +111,14 @@ const UserPostsPage = async ({
         <main className="container mx-auto px-4 py-8">
           <div className="grid md:grid-cols-4 grid-cols-1 md:gap-6">
             <CateSidebar
-              categories={categoryResult.data || []}
+              categories={kienThucCategory?.children || []}
               currentSlug={""}
               user={
                 resultUser.data.image
-                  ? { name: resultUser.data.name, image: resultUser.data.image }
+                  ? {
+                      name: resultUser.data.name,
+                      image: resultUser.data.image,
+                    }
                   : undefined
               }
             />

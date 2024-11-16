@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3002/dich-vu-marketing-online</loc><lastmod>2024-10-29T13:21:51.473Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002/projects</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002/lien-he</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002/lap-trinh-app-mobile</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002/thiet-ke-web-theo-yeu-cau</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>http://localhost:3002/gioi-thieu</loc><lastmod>2024-10-29T13:21:51.474Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/dich-vu-marketing-online</loc><lastmod>2024-11-16T07:13:45.546Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/projects</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/thiet-ke-website-theo-mau</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/thiet-ke-web-theo-yeu-cau</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/lien-he</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/gioi-thieu</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/lap-trinh-app-mobile</loc><lastmod>2024-11-16T07:13:45.548Z</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>http://localhost:3002/kien-thuc</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>http://localhost:3002/seo</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>http://localhost:3002/web-design</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>http://localhost:3002/marketing-online</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>http://localhost:3002/app-mobile</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/templates</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>http://localhost:3002/cong-nghe-dien-tu</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/noi-that</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/thoi-trang</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/food-nha-hang</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/dich-vu</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/tap-doan-cong-ty</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/giao-duc</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/suc-khoe-lam-dep</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/bat-dong-san</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/du-lich</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3002/the-thao</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>http://localhost:3002/seo-hinh-anh-la-gi.html</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
 <url><loc>http://localhost:3002/local-seo-la-gi-cach-toi-uu-local-seo.html</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
 <url><loc>http://localhost:3002/search-intent-la-gi-cach-toi-uu-search-intent.html</loc><changefreq>daily</changefreq><priority>0.6</priority></url>

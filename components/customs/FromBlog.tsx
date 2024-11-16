@@ -37,7 +37,8 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchRecentBlogs = async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}category/kien-thuc?sort_name=created_at&sort_by=desc&page=1&limit=6`
+        `${process.env.NEXT_PUBLIC_API_URL}category/kien-thuc?sort_name=created_at&sort_by=desc&page=1&limit=6`,
+        { cache: "no-store" }
       );
 
       if (!response.ok) {

@@ -1,39 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavHeader from "../../components/moduls/NavHeader";
+import NavHeader from "@/components/moduls/NavHeader";
 import CateSidebar from "./components/CateSidebar";
-import PaginationComponent from "../../components/moduls/PaginationComponent";
+import PaginationComponent from "@/components/moduls/PaginationComponent";
 import { notFound } from "next/navigation"; // Để sử dụng tính năng chuyển hướng về trang 404
 import { Metadata } from "next";
-
-// Định nghĩa kiểu dữ liệu trả về từ API
-interface Article {
-  name: string;
-  slug: string;
-  image?: string;
-  description?: string | null;
-  created_at: string;
-  category: {
-    name: string;
-    slug: string;
-  };
-}
-
-interface CategoryData {
-  id: number;
-  name: string;
-  slug: string;
-  content: string;
-  title_seo?: string | null;
-  description_seo?: string | null;
-  canonical_seo?: string | null;
-  created_at: string;
-  posts: {
-    current_page: number;
-    last_page: number;
-    data: Article[];
-  };
-}
+import {
+  Article,
+  CategoryData,
+  CategoryWithChildren,
+} from "@/types/Categories";
 
 // Hàm generateMetadata
 export async function generateMetadata({
@@ -118,7 +94,19 @@ export async function fetchCategories() {
     throw new Error("Failed to fetch categories");
   }
 
-  return res.json();
+  const response = await res.json();
+
+  // Tìm category "kien-thuc" và lấy children của nó
+  const kienThucCategory = response.data.find(
+    (cat: CategoryWithChildren) => cat.slug === "kien-thuc"
+  );
+
+  // Trả về children của category "kien-thuc" hoặc mảng rỗng
+  return {
+    success: response.success,
+    message: response.message,
+    data: kienThucCategory?.children || [],
+  };
 }
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
@@ -139,7 +127,7 @@ const Category = async ({ slug, searchParams }: CategoryProps) => {
     ]);
 
     const { name, posts } = articlesResponse;
-    const { data: categories } = categoriesResponse;
+    const { data: sidebarCategories } = categoriesResponse;
 
     // Kiểm tra xem có bài viết nào không
     if (!posts || posts.data.length === 0) {
@@ -162,7 +150,7 @@ const Category = async ({ slug, searchParams }: CategoryProps) => {
         </div>
         <main className="container mx-auto px-4 py-8">
           <div className="grid md:grid-cols-4 grid-cols-1 md:gap-6">
-            <CateSidebar categories={categories} currentSlug={slug} />
+            <CateSidebar categories={sidebarCategories} currentSlug={slug} />
             <div className="col-span-3">
               <div className="container mx-auto md:py-0 pt-6 px-0">
                 <div className="grid md:grid-cols-3 gap-6">

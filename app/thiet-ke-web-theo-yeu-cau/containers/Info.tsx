@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../../components/moduls/variants";
+import { fadeIn } from "@/components/moduls/variants";
 
 const howItWorksContent = {
   heading: {
