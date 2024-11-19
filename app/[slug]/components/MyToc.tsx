@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import parse from "html-react-parser";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface TOCProps {
   tocHtml: string;
@@ -65,39 +66,43 @@ const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
             Mục Lục Bài Viết
           </AccordionTrigger>
           <AccordionContent>
-            <ul className="toc text-[15px] leading-[22px] text-gray-700">
-              {React.Children.map(tocItems, (element) => {
-                if (React.isValidElement(element) && element.type === "li") {
-                  const link = element.props.children; // Lấy children
+            <ScrollArea className="h-96">
+              <ul className="toc text-[15px] leading-[22px] text-gray-700">
+                {React.Children.map(tocItems, (element) => {
+                  if (React.isValidElement(element) && element.type === "li") {
+                    const link = element.props.children; // Lấy children
 
-                  // Kiểm tra và ép kiểu cho link
-                  if (React.isValidElement(link) && link.type === "a") {
-                    const linkProps = link.props as CustomLinkProps; // Ép kiểu cho props của link
-                    const id = linkProps.href?.substring(1);
-                    const isActive = activeId === id;
+                    // Kiểm tra và ép kiểu cho link
+                    if (React.isValidElement(link) && link.type === "a") {
+                      const linkProps = link.props as CustomLinkProps; // Ép kiểu cho props của link
+                      const id = linkProps.href?.substring(1);
+                      const isActive = activeId === id;
 
-                    return (
-                      <li
-                        key={id}
-                        className={`${
-                          element.props.className === "h3"
-                            ? "ml-4"
-                            : "h2 font-medium"
-                        } ${isActive ? "text-thirdary" : ""}`}
-                      >
-                        <Link
-                          href={`#${id}`}
-                          className={isActive ? "text-thirdary font-bold" : ""}
+                      return (
+                        <li
+                          key={id}
+                          className={`${
+                            element.props.className === "h3"
+                              ? "ml-4"
+                              : "h2 font-medium"
+                          } ${isActive ? "text-thirdary" : ""}`}
                         >
-                          {linkProps.children} {/* Sử dụng linkProps */}
-                        </Link>
-                      </li>
-                    );
+                          <Link
+                            href={`#${id}`}
+                            className={
+                              isActive ? "text-thirdary font-bold" : ""
+                            }
+                          >
+                            {linkProps.children} {/* Sử dụng linkProps */}
+                          </Link>
+                        </li>
+                      );
+                    }
                   }
-                }
-                return null; // Trả về null nếu không phải là một li element
-              })}
-            </ul>
+                  return null; // Trả về null nếu không phải là một li element
+                })}
+              </ul>
+            </ScrollArea>
           </AccordionContent>
         </div>
       </AccordionItem>
