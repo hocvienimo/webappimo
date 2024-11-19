@@ -23,7 +23,7 @@ const Nav = ({ isScrolled }: { isScrolled: boolean }) => {
       setError(null); // Reset error state
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}menu`, {
-          cache: "no-store",
+          cache: "force-cache",
         });
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -84,7 +84,7 @@ const Nav = ({ isScrolled }: { isScrolled: boolean }) => {
                       <Link
                         href={subItem.path}
                         className={`block px-4 text-[15px] ${
-                          subItem.path === pathname ? "text-primary" : ""
+                          pathname === `/${subItem.path}` ? "text-primary" : ""
                         } hover:text-secondary text-[#aaa] transition-all`}
                       >
                         {subItem.name}

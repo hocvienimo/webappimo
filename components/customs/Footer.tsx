@@ -75,13 +75,13 @@ const contentFooter = {
         {
           href: "#",
           title: "Văn Phòng:",
-          label: "730/126 Lê Đức Thọ, Phường 15, Quận Gò Vấp, TP.HCM",
+          label: "730/126 Lê Đức Thọ, P15, Gò Vấp, TP.HCM",
           icon: FaMapMarkerAlt,
         },
         {
           href: "#",
           title: "Phòng DevWeb:",
-          label: "766/1 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, TP.HCM",
+          label: "766/1 Đ. Sư Vạn Hạnh, P12, Q10, TP.HCM",
           icon: FaMapMarkerAlt,
         },
         {
@@ -120,36 +120,48 @@ const contentFooter = {
 
 const Footer = () => {
   return (
-    <footer className="overflow-hidden w-full h-full relative bg-primary border-t-2 border-secondary rounded-t-3xl">
-      <div className="py-14">
-        <div className="container px-4 mx-auto relative">
-          <div className="lg:flex gap-8">
+    <footer className="overflow-hidden relative w-full h-full border-t-4 border-thirdary rounded-t-3xl">
+      <div className="relative inset-0 z-0 w-full md:h-[320px] h-[1240px]">
+        <Image
+          src="/images/bg-header-imovn.jpg"
+          alt="ft-imovn"
+          fill
+          style={{ objectFit: "cover" }}
+          className="z-0"
+        />
+        <div className="absolute inset-0 bg-black opacity-60 z-10" />
+      </div>
+      <div className="absolute inset-0 z-10 pt-8">
+        <div className="container px-3 mx-auto relative">
+          <div className="lg:flex gap-8 mx-auto">
             <div className="lg:w-4/12 mb-10 lg:mb-0">
               <Link href="/">
                 <Image
                   src={Logo}
                   alt="imo-vn"
                   priority
-                  className="w-36 md:w-48"
+                  className="w-36 md:w-40"
                 />
               </Link>
-              <p className="mt-4 text-gray-300">{contentFooter.description}</p>
+              <p className="mt-4 text-base text-gray-300 text-justify">
+                {contentFooter.description}
+              </p>
             </div>
             <div className="lg:w-8/12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_40%_40%] gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_36%_44%] md:gap-5 gap-0">
                 {contentFooter.footerLinks.map((item) => (
                   <div className="mb-10 lg:mb-0" key={item.heading}>
-                    <h5 className="text-white font-secondary font-extrabold text-xl mb-3">
+                    <h5 className="text-white font-secondary font-extrabold text-lg mb-3">
                       {item.heading}
                     </h5>
                     <ul className="list-none">
                       {item.links.map((link) => (
-                        <li key={link.label} className="mb-2">
+                        <li key={link.label} className="mb-0">
                           <Link
                             href={link.href}
-                            className="text-gray-300 duration-300 ease-in-out transition-all hover:text-[#FF7431]"
+                            className="text-gray-300 text-base duration-300 ease-in-out transition-all hover:text-[#FF7431]"
                           >
-                            <span>{link.label}</span>
+                            <span className="text-base">{link.label}</span>
                           </Link>
                         </li>
                       ))}
@@ -162,12 +174,12 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-secondary py-0 pb-2">
-        <div className="copyright container pt-3">
+      <div className="relative bg-secondary py-0 pb-2 z-10">
+        <div className="copyright md:block flex md:justify-between justify-center container pt-3">
           <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center justify-center">
-            <div className="left_cpr">
+            <div className="left_cpr md:text-left text-center">
               <p className="text-[13px] leading-5 text-white">
-                © Copyright 2016 iMovn.
+                © Copyright 2016 - Công Ty TNHH iMovn #GCN_DKT: 0317771548
               </p>
             </div>
 
@@ -179,17 +191,23 @@ const Footer = () => {
                     alt="copyright-imovn"
                     width={45}
                     height={45}
-                    className="w-[45px] h-[45px]"
+                    className="w-[35px] h-[35px]"
                   />
                 </li>
                 <li>
-                  <Image
-                    src={contentFooter.copyright.img_2}
-                    alt="copyright-imovn"
-                    width={45}
-                    height={45}
-                    className="w-[45px] h-[45px]"
-                  />
+                  <Link
+                    href="https://trangvangtructuyen.vn/cong-ty-tnhh-imo-vn.html"
+                    rel="nofollow"
+                    target="_blank"
+                  >
+                    <Image
+                      src={contentFooter.copyright.img_2}
+                      alt="copyright-imovn"
+                      width={45}
+                      height={45}
+                      className="w-[35px] h-[35px]"
+                    />
+                  </Link>
                 </li>
                 <li>
                   <Image
@@ -197,7 +215,7 @@ const Footer = () => {
                     alt="copyright-imovn"
                     width={45}
                     height={45}
-                    className="w-[45px] h-[45px]"
+                    className="w-[35px] h-[35px]"
                   />
                 </li>
               </ul>

@@ -17,7 +17,6 @@ const Hero = () => {
   const images = [
     "/images/templates/hero-demo.webp",
     "/images/templates/hero-demo-1.webp",
-    // Thêm các ảnh khác nếu cần
   ];
 
   return (

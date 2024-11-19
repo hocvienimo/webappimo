@@ -74,7 +74,7 @@ const MobileMenu = ({ isScrolled }: MobileMenuProps) => {
     const fetchMenuData = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}menu`, {
-          cache: "no-store",
+          cache: "force-cache",
         });
         if (!res.ok) {
           throw new Error("Network response was not ok"); // Handle HTTP errors
@@ -168,9 +168,12 @@ const MobileMenu = ({ isScrolled }: MobileMenuProps) => {
                   <li key={subItem.id} className="mb-2">
                     <Link
                       href={subItem.path}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={() => {
+                        console.log("subItem.path", subItem.path);
+                        setIsMenuOpen(false);
+                      }}
                       className={`text-gray-600 hover:text-gray-800 ${
-                        pathname === subItem.path ? "text-thirdary" : ""
+                        pathname === `/${subItem.path}` ? "text-thirdary" : ""
                       }`}
                     >
                       {subItem.name}
