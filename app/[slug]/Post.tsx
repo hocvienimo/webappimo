@@ -65,7 +65,7 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const slug = params.slug.replace(".html", ""); // Xóa đuôi .html nếu có
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}post/${slug}`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
 
   if (!res.ok) {
@@ -112,7 +112,7 @@ const Post = async ({ slug }: { slug: string }) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}post/${slug}?limit=12`,
     {
-      cache: "no-store",
+      cache: "force-cache",
     }
   );
 
@@ -132,7 +132,7 @@ const Post = async ({ slug }: { slug: string }) => {
   const companyRes = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=company`,
     {
-      cache: "no-store",
+      cache: "force-cache",
     }
   );
 
