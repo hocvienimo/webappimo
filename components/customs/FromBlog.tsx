@@ -37,7 +37,7 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchRecentBlogs = async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}category/kien-thuc?sort_name=created_at&sort_by=desc&page=1&limit=6`,
+        `${process.env.NEXT_PUBLIC_API_URL}category/kien-thuc?sort_name=created_at&sort_by=desc&page=1&limit=8`,
         { cache: "force-cache" }
       );
 
@@ -90,7 +90,7 @@ const BlogSection = () => {
         </div>
 
         {/* Giao diện md - Card Mini */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {recentBlog.map((post) => (
             <div
               key={post.slug}
