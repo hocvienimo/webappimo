@@ -61,8 +61,8 @@ const TOC: React.FC<TOCProps> = ({ tocHtml }) => {
   return (
     <Accordion type="single" collapsible defaultValue="toc">
       <AccordionItem value="toc" className="border-b-0">
-        <div className="table-content bg-white rounded-xl shadow-md md:px-8 px-3 py-4">
-          <AccordionTrigger className="text-xl font-secondary text-primary font-bold">
+        <div className="table-content bg-white rounded-xl shadow-xl md:px-8 px-3 py-4">
+          <AccordionTrigger className="text-xl font-secondary text-thirdary font-bold">
             Mục Lục Bài Viết
           </AccordionTrigger>
           <AccordionContent>
