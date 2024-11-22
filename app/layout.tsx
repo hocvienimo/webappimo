@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Mulish, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/customs/Header";
@@ -80,11 +79,37 @@ async function getSchema() {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`
     );
-    const data = await response.json();
 
-    return data.success ? data.data.schema_website : null;
+    /// Kiểm tra xem phản hồi có đúng định dạng JSON không
+    const data = await response.json();
+    console.log("Dữ liệu trả về từ API:", data); // Thêm log để xem dữ liệu
+
+    if (data && data.data && data.data.schema_website) {
+      // Lấy chuỗi JSON-LD từ thẻ <script> và trả lại dưới dạng JSON
+      const schemaScript = data.data.schema_website.description;
+
+      // Lấy phần dữ liệu JSON từ chuỗi <script> (cắt bỏ phần tag <script>)
+      const jsonLd = schemaScript
+        .replace('<script type="application/ld+json">', "")
+        .replace("</script>", "");
+
+      // Kiểm tra tính hợp lệ của dữ liệu JSON
+      try {
+        // Parse JSON để kiểm tra cú pháp
+        const parsedJson = JSON.parse(jsonLd);
+
+        // Trả về dữ liệu JSON hợp lệ
+        return JSON.stringify(parsedJson); // Convert lại thành chuỗi JSON sau khi kiểm tra
+      } catch (e) {
+        console.error("Dữ liệu JSON không hợp lệ:", e);
+        return null;
+      }
+    } else {
+      console.error("Schema website không tồn tại trong dữ liệu trả về:", data);
+      return null;
+    }
   } catch (error) {
-    console.error("Error fetching schema:", error);
+    console.error("Lỗi khi lấy schema từ API:", error);
     return null;
   }
 }
@@ -94,18 +119,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const schema = await getSchema();
+  const schemaJsonLd = await getSchema();
 
   return (
     <html lang="vi" suppressHydrationWarning={true}>
       <head>
-        {schema && (
-          <Script
-            id="schema-script"
+        {schemaJsonLd && (
+          <script
+            dangerouslySetInnerHTML={{ __html: schemaJsonLd }}
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema),
-            }}
           />
         )}
       </head>
