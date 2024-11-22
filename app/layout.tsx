@@ -104,9 +104,8 @@ export default async function RootLayout({
             id="schema-script"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema.description),
+              __html: JSON.stringify(schema),
             }}
-            strategy="afterInteractive"
           />
         )}
       </head>
