@@ -81,9 +81,11 @@ async function getSchema() {
       `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`,
       {
         next: { revalidate: 3600 }, // revalidate every hour
+        cache: "force-cache",
       }
     );
     const data = await response.json();
+
     return data.success ? data.data.schema_website : null;
   } catch (error) {
     console.error("Error fetching schema:", error);
@@ -97,6 +99,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const schema = await getSchema();
+
   return (
     <html lang="vi" suppressHydrationWarning={true}>
       <head>
@@ -104,7 +107,9 @@ export default async function RootLayout({
           <Script
             id="schema-script"
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema.description),
+            }}
             strategy="afterInteractive"
           />
         )}
