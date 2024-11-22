@@ -78,10 +78,7 @@ export const metadata: Metadata = {
 async function getSchema() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`,
-      {
-        next: { revalidate: 3600 }, // revalidate every hour
-      }
+      `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`
     );
     const data = await response.json();
 
