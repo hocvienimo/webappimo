@@ -12,6 +12,8 @@ import {
 } from "react-icons/fi";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Article as SchemaArticle } from "schema-dts";
+import Script from "next/script";
 
 // Định nghĩa kiểu dữ liệu cho bài viết
 interface User {
@@ -159,8 +161,46 @@ const Post = async ({ slug }: { slug: string }) => {
   // Tạo username từ email
   const username = post.user.email.replace("@gmail.com", ""); // Cắt bỏ phần đuôi @gmail.com
 
+  //Schema Post
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.name,
+    author: {
+      "@type": "Person",
+      name: post.user.name,
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/@${post.user.email.replace(
+        "@gmail.com",
+        ""
+      )}`, // Dynamic author URL,
+    },
+    datePublished: post.created_at,
+    dateModified: post.created_at,
+    image: post.image || "/placeholder.jpg",
+    publisher: {
+      "@type": "Organization",
+      name: "IMO VN",
+      logo: {
+        "@type": "ImageObject",
+        url: "/images/imo-vn-brand-name.png",
+      },
+    },
+    description: post.description_seo || post.description,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${process.env.NEXT_PUBLIC_DOMAIN}/${slug}.html`,
+    },
+  } as SchemaArticle;
+
   return (
     <main className="single-post pb-6">
+      <Script
+        id="schema-article"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
       <section className="container mx-auto md:px-4 py-8 mt-20">
         <MyBreadcrumb crumbs={crumbs} />
       </section>

@@ -82,7 +82,6 @@ async function getSchema() {
 
     /// Kiểm tra xem phản hồi có đúng định dạng JSON không
     const data = await response.json();
-    console.log("Dữ liệu trả về từ API:", data); // Thêm log để xem dữ liệu
 
     if (data && data.data && data.data.schema_website) {
       // Lấy chuỗi JSON-LD từ thẻ <script> và trả lại dưới dạng JSON
