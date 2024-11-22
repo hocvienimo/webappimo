@@ -81,7 +81,6 @@ async function getSchema() {
       `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=schema_website`,
       {
         next: { revalidate: 3600 }, // revalidate every hour
-        cache: "force-cache",
       }
     );
     const data = await response.json();

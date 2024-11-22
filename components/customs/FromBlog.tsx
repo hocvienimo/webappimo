@@ -38,7 +38,7 @@ const BlogSection = () => {
     const fetchRecentBlogs = async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}category/kien-thuc?sort_name=created_at&sort_by=desc&page=1&limit=8`,
-        { cache: "force-cache" }
+        { cache: "no-store" }
       );
 
       if (!response.ok) {
