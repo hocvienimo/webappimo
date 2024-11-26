@@ -227,4 +227,9 @@ ul.toc li:hover {
   .content-single ol {
     padding-left: 0px;
   }
+
+  .content-single figure img {
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
 }
