@@ -252,7 +252,7 @@ const Post = async ({ slug }: { slug: string }) => {
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
             {/* Hiển thị thông tin công ty */}
-            <div className="bio-company bg-white shadow-lg rounded-br-3xl rounded-bl-3xl grid md:grid-cols-[30%_70%] grid-cols-1 items-end pb-8 pt-4 mt-8 border-t-[3px] border-thirdary">
+            <div className="bio-company bg-white shadow-lg rounded-br-3xl pl-7 rounded-bl-3xl grid md:grid-cols-[30%_70%] grid-cols-1 items-end pb-5 pt-4 mt-8 border-t-[3px] border-thirdary">
               <ul className="bio-connect md:!ml-7 !ml-0">
                 <div className="flex gap-2">
                   <li className="flex items-center gap-1">

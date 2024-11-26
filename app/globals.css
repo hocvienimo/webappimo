@@ -19,15 +19,20 @@
 
 .content-single ul {
   list-style: disc;
-  margin-left: 40px;
-  margin-bottom: 13px;
 }
 
 .content-single ol {
   list-style: decimal-leading-zero;
-  margin-left: 40px;
-  margin-bottom: 13px;
 }
+
+.content-single ul,
+.content-single ol {
+  max-width: 80%;
+  margin: auto;
+  padding-left: 50px;
+  padding-bottom: 15px;
+}
+
 .content-single figure {
   position: relative;
   margin-bottom: 55px;
@@ -63,13 +68,14 @@
   margin-left: auto;
   margin-right: auto;
 }
-.content-single ul,
-.content-single ol {
-  max-width: 80%;
+
+.content-single .bio-company ul {
+  max-width: 91%;
   margin: auto;
-  padding-left: 50px;
-  padding-bottom: 15px;
+  padding-left: unset;
+  padding-bottom: unset;
 }
+
 .content-single h2 {
   font-size: 23px;
   font-family: "__Playfair_Display_603b0e";
