@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  body{
+  body {
     @apply font-primary leading-loose;
   }
 }
 
-.content-single h2, .content-single h3, .content-single h4 {
+.content-single h2,
+.content-single h3,
+.content-single h4 {
   margin-bottom: 20px;
 }
 .content-single p {
@@ -26,40 +28,70 @@
   margin-left: 40px;
   margin-bottom: 13px;
 }
+.content-single figure {
+  position: relative;
+  margin-bottom: 55px;
+}
+.content-single figure img {
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  box-shadow: 0px 0px 9px #e6e6e6;
+}
+
 .content-single figcaption {
-    background-color: #f0f1f7;
-    font-size: 15px;
-    text-align: center;
-    padding: 4px;
-    font-style: italic;
-    color: #104375;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 14px;
+  background-color: #f0f1f7;
+  font-size: 15px;
+  text-align: center;
+  padding: 4px;
+  font-style: italic;
+  color: #104375;
+  border-bottom-width: 3px;
+  border-bottom-left-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  margin-bottom: 14px;
+  position: absolute;
+  width: 73%;
+  right: 0;
+}
+.content-single p,
+.content-single h2,
+.content-single h3,
+.content-single h4,
+.content-single h6 {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-single ul,
+.content-single ol {
+  max-width: 80%;
+  margin: auto;
+  padding-left: 50px;
+  padding-bottom: 15px;
 }
 .content-single h2 {
-    font-size: 23px;
-    font-family: '__Playfair_Display_603b0e';
-    color: #103e75;
-    text-align: left;
-    font-weight: 600;
+  font-size: 23px;
+  font-family: "__Playfair_Display_603b0e";
+  color: #103e75;
+  text-align: left;
+  font-weight: 600;
 }
 .content-single h3 {
   font-size: 21px;
-  font-family: '__Playfair_Display_603b0e';
+  font-family: "__Playfair_Display_603b0e";
   color: #155290;
   text-align: left;
   font-weight: 600;
 }
 .content-single h4 {
   font-size: 18px;
-  font-family: '__Playfair_Display_603b0e';
+  font-family: "__Playfair_Display_603b0e";
   color: #3f91a3;
   text-align: left;
   font-weight: 600;
   font-style: italic;
 }
-ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.rounded-md::after{
+ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.rounded-md::after {
   content: "";
   position: absolute;
   left: 16px;
@@ -68,7 +100,7 @@ ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.roun
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #3D91A0;
+  border-bottom: 8px solid #3d91a0;
 }
 
 .header-notifications-dropdown::before {
@@ -84,7 +116,7 @@ ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.roun
 }
 
 .shadow-job {
-  box-shadow: 0 0 12px rgba(42,65,232,.1);
+  box-shadow: 0 0 12px rgba(42, 65, 232, 0.1);
   position: relative;
 }
 
@@ -97,14 +129,14 @@ ul.hidden.group-hover\:block.absolute.left-0.top-14.py-3.bg-white.shadow-lg.roun
   width: 3px;
   height: 100%;
   display: block;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .social-icons {
   display: flex;
   justify-content: center; /* Căn giữa các icon theo chiều ngang */
-  align-items: center;     /* Căn giữa các icon theo chiều dọc */
-  gap: 14px;               /* Khoảng cách giữa các icon */
+  align-items: center; /* Căn giữa các icon theo chiều dọc */
+  gap: 14px; /* Khoảng cách giữa các icon */
 }
 
 a.icon-social-ft {
@@ -112,7 +144,7 @@ a.icon-social-ft {
   color: #fff;
   display: inline-flex; /* Thay display từ inline-block thành inline-flex */
   justify-content: center; /* Căn giữa nội dung bên trong */
-  align-items: center;     /* Căn giữa nội dung bên trong */
+  align-items: center; /* Căn giữa nội dung bên trong */
   transition: 0.3s;
   opacity: 0.5;
   transform: translate3d(0, -0.5px, 0);
@@ -126,9 +158,9 @@ a.icon-social-ft:hover {
 
 .single-post nav {
   background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.03);
-    padding: 11px 34px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.03);
+  padding: 11px 34px;
 }
 
 .single-post nav ol li:last-child a {
@@ -136,7 +168,7 @@ a.icon-social-ft:hover {
 }
 
 /* CSS trong component hoặc file CSS riêng */
-.swiper-button-prev::after, 
+.swiper-button-prev::after,
 .swiper-button-next::after {
   display: none;
 }
@@ -154,7 +186,7 @@ a.icon-social-ft:hover {
 } */
 
 ul.toc li:hover {
-  color: #FD7430; /* Hoặc màu bạn muốn */
+  color: #fd7430; /* Hoặc màu bạn muốn */
 }
 
 .single-post .crumb-post {
@@ -172,6 +204,26 @@ ul.toc li:hover {
   }
 
   .parallax-wrapper .react-parallax-bgimage {
-    display:none;
+    display: none;
+  }
+  .content-single figcaption {
+    font-size: 10px;
+    padding: 0px;
+    width: 85%;
+  }
+
+  .content-single p,
+  .content-single h2,
+  .content-single h3,
+  .content-single h4,
+  .content-single h6 {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-single ul,
+  .content-single ol {
+    padding-left: 0px;
   }
 }

@@ -67,7 +67,7 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const slug = params.slug.replace(".html", ""); // Xóa đuôi .html nếu có
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}post/${slug}`, {
-    cache: "no-store",
+    next: { revalidate: 60 }, // Tái tạo trang sau 60 giây
   });
 
   if (!res.ok) {
@@ -114,7 +114,7 @@ const Post = async ({ slug }: { slug: string }) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}post/${slug}?limit=12`,
     {
-      cache: "no-store",
+      next: { revalidate: 60 },
     }
   );
 
@@ -134,7 +134,7 @@ const Post = async ({ slug }: { slug: string }) => {
   const companyRes = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}setting?keys[]=company`,
     {
-      cache: "no-store",
+      next: { revalidate: 3600 },
     }
   );
 
@@ -248,11 +248,11 @@ const Post = async ({ slug }: { slug: string }) => {
               </p>
             )}
           </aside>
-          <section className="content-single bg-white text-lg text-justify rounded-xl shadow-md md:px-8 px-3 py-4">
+          <section className="content-single text-base text-justify md:px-8 px-3 py-4">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
             {/* Hiển thị thông tin công ty */}
-            <div className="bio-company grid md:grid-cols-[30%_70%] grid-cols-1 items-end pb-8 pt-4 mt-8 border-t-[3px] border-[#e4e8f5]">
+            <div className="bio-company bg-white shadow-lg rounded-br-3xl rounded-bl-3xl grid md:grid-cols-[30%_70%] grid-cols-1 items-end pb-8 pt-4 mt-8 border-t-[3px] border-thirdary">
               <ul className="bio-connect md:!ml-7 !ml-0">
                 <div className="flex gap-2">
                   <li className="flex items-center gap-1">

@@ -22,7 +22,7 @@ export async function generateMetadata({
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}category/${slug}`,
     {
-      cache: "no-store",
+      next: { revalidate: 60 },
     }
   );
 
@@ -66,7 +66,7 @@ export async function fetchArticlesBySlug(
 ): Promise<CategoryData> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}category/${slug}?sort_name=created_at&sort_by=desc&page=${page}&limit=${limit}`,
-    { cache: "no-store" }
+    { next: { revalidate: 60 } }
   );
 
   if (!res.ok) {
@@ -87,7 +87,7 @@ export async function fetchArticlesBySlug(
 // Hàm gọi API lấy danh sách danh mục
 export async function fetchCategories() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}category`, {
-    cache: "no-store",
+    next: { revalidate: 60 },
   });
 
   if (!res.ok) {

@@ -6,7 +6,12 @@ import { fadeIn } from "@/components/moduls/variants";
 
 const aboutContent = {
   heading: {
-    title: "Giải Pháp Toàn Diện Cho Doanh Nghiệp Số",
+    title: (
+      <>
+        Giải Pháp Toàn Diện <br />
+        Doanh Nghiệp Số
+      </>
+    ),
     subtitle: "Chi phí thấp - Hiệu quả cao - Uy tín tuyệt đối",
     description:
       "iMovn - Đối Tác Đáng Tin Cậy Cho Giải Pháp Thiết Kế Website, Lập Trình Ứng Dụng Di Động và Marketing Online Đa Kênh trong và ngoài nước tại Việt Nam. Chúng tôi là một trong những đơn vị hàng đầu cung cấp các dịch vụ:",
@@ -35,7 +40,7 @@ const AboutUs = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.2 }}
-              className="font-secondary md:text-5xl text-3xl mt-3 font-black mb-6 text-primary"
+              className="font-secondary md:text-7xl text-3xl mt-3 font-black mb-6 text-primary"
             >
               {aboutContent.heading.title}
             </motion.h1>
