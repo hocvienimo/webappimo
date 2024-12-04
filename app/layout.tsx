@@ -6,6 +6,7 @@ import Footer from "../components/customs/Footer";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -144,6 +145,10 @@ export default async function RootLayout({
         <Analytics />
         <SpeedInsights />
         <Footer />
+        <Script
+          strategy="lazyOnload"
+          src="https://embed.tawk.to/659df4390ff6374032be4549/1hjog40ck"
+        />
       </body>
     </html>
   );
