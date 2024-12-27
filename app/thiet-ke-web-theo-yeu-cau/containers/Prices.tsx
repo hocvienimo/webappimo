@@ -34,7 +34,7 @@ const headCommit = {
       "Bảng Giá Dịch Vụ thiết kế & lập trình website theo yêu cầu khách hàng",
     subTitle: "Dịch vụ thiết kế website",
     description:
-      "Giá dịch vụ thiết kế website và nhu cầu trên thị trường hiện nay có nhiều yếu tố ảnh hưởng, đặc biệt khi bạn sử dụng công nghệ hiện đại như Next.js, Tailwind CSS, Node.js, MongoDB, và Express. Dưới đây là các gói chủ đạo tại iMovn cung cấp thịnh hành hiện nay.",
+      "Giá dịch vụ thiết kế website và nhu cầu trên thị trường hiện nay có nhiều yếu tố ảnh hưởng, đặc biệt khi bạn sử dụng công nghệ hiện đại như Nodejs (Nestjs, Express), Mongodb, Typescript, Reactjs (Nextjs), Vuejs (Nuxtjs), Angular, Tailwind CSS, HTML5. Dưới đây là các gói chủ đạo tại iMovn cung cấp thịnh hành hiện nay.",
   },
 };
 

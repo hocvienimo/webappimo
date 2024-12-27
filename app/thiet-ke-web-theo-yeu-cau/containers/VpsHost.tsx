@@ -92,12 +92,13 @@ const VpsHost = () => {
               viewport={{ once: false, amount: 0.2 }}
               className="text-base text-gray-900"
             >
-              Khi chọn thiết kế website với Next.js, Tailwind CSS, Node.js,
-              MongoDB & Express tại iMovn Bạn sẽ có hiệu suất tối ưu với tốc độ
-              tải nhanh & trải nghiệm người dùng mượt mà. Giao diện hiện đại và
-              tùy chỉnh linh hoạt giúp website nổi bật hơn so với đối thủ. Ngoài
-              ra, bạn còn được bảo mật tốt và khả năng mở rộng dễ dàng theo nhu
-              cầu phát triển của doanh nghiệp.
+              Khi chọn thiết kế website với Nodejs (Nestjs, Express), Mongodb,
+              Typescript, Reactjs (Nextjs), Vuejs (Nuxtjs), Angular, Tailwind
+              CSS tại iMovn Bạn sẽ có hiệu suất tối ưu với tốc độ tải nhanh &
+              trải nghiệm người dùng mượt mà. Giao diện hiện đại và tùy chỉnh
+              linh hoạt giúp website nổi bật hơn so với đối thủ. Ngoài ra, bạn
+              còn được bảo mật tốt và khả năng mở rộng dễ dàng theo nhu cầu phát
+              triển của doanh nghiệp.
             </motion.p>
           </div>
         </div>
